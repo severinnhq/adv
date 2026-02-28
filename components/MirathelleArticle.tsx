@@ -664,7 +664,7 @@ export default function MirathelleArticle() {
               </h3>
 
               <p style={{ marginBottom: 16 }}>
-                Három éve tartottam a karomban Kormost, utoljára. Veseelégtelenség. Csak 11 éves volt.
+                Három éve tartottam a karomban Kormost, utoljára. Veseelégtelenség. Csak 9 éves volt.
               </p>
 
               <div className="intro-two-col">
@@ -1236,6 +1236,14 @@ export default function MirathelleArticle() {
 
             {/* 3 Images Stacked Vertically */}
             <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 20 }}>
+              <video
+                src="https://cdn.shopify.com/videos/c/o/v/185659e5dbad4195b8e3e2b16224ac2f.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={{ width: "100%", borderRadius: 10, objectFit: "cover" }}
+              />
               <img src={IMAGES.sidebar1} alt="Cica" style={{ width: "100%", borderRadius: 10, objectFit: "cover" }} />
               <img src={IMAGES.sidebar2} alt="Cica" style={{ width: "100%", borderRadius: 10, objectFit: "cover" }} />
               <img src={IMAGES.sidebar3} alt="Cica" style={{ width: "100%", borderRadius: 10, objectFit: "cover" }} />

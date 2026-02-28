@@ -22,27 +22,27 @@ function trackClick(id: string, label: string) {
    ═══════════════════════════════════════════════ */
 const IMAGES = {
   // 1. Hero — woman on couch reading phone, cat sleeping next to her
-  hero: "TODO_hero_woman_reading_messages.png",
+  hero: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_hero_woman_reading_messages_png.jpg?v=1772322138",
 
   // 2. Sad cat — woman at vet clinic with cat on examination table
-  catSad: "TODO_cat_vet_clinic.png",
+  catSad: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_cat_vet_clinic_png.jpg?v=1772322138",
 
   // 3-6. Grid 2x2 — cats ignoring water bowls
-  catBowl1: "TODO_cat_sniffing_bowl_turning_away.png",
-  catBowl2: "TODO_cat_sitting_next_to_untouched_bowl.png",
-  catBowl3: "TODO_overhead_water_bowl_cat_paw.png",
-  catBowl4: "TODO_woman_watching_cat_walk_past_bowl.png",
+  catBowl1: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_cat_sniffing_bowl_turning_away_png.jpg?v=1772322138",
+  catBowl2: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_cat_sitting_next_to_untouched_bowl_png.jpg?v=1772322138",
+  catBowl3: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_overhead_water_bowl_cat_paw_png.jpg?v=1772322137",
+  catBowl4: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_woman_watching_cat_walk_past_bowl_png.jpg?v=1772322137",
 
   // 7. Fountain — stainless steel cat fountain, product shot
-  fountain: "TODO_fountain_product_shot.png",
+  fountain: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_fountain_product_shot_png.png?v=1772321943",
 
   // 8. Product card — fountain from above showing filtration
-  productCard: "TODO_fountain_top_view_filtration.png",
+  productCard: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_fountain_top_view_filtration_png.png?v=1772321942",
 
   // 9-11. Sidebar images
-  sidebar1: "TODO_sidebar_cat_drinking_fountain.png",
-  sidebar2: "TODO_sidebar_woman_watching_cat_drink.png",
-  sidebar3: "TODO_sidebar_cat_sleeping_next_to_fountain.png",
+  sidebar1: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_sidebar_cat_drinking_fountain_png.png?v=1772321943",
+  sidebar2: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_sidebar_woman_watching_cat_drink_png.png?v=1772321943",
+  sidebar3: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_sidebar_cat_sleeping_next_to_fountain_png.png?v=1772321942",
 };
 
 /* ─── Sub-Components ─── */
@@ -610,7 +610,16 @@ export default function MirathelleArticle2() {
                 </a>
               </div>
             </div>
+                {/* 3 Images Stacked Vertically */}
             <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 20 }}>
+              <video
+                src="https://cdn.shopify.com/videos/c/o/v/185659e5dbad4195b8e3e2b16224ac2f.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={{ width: "100%", borderRadius: 10, objectFit: "cover" }}
+              />
               <img src={IMAGES.sidebar1} alt="Cica" style={{ width: "100%", borderRadius: 10, objectFit: "cover" }} />
               <img src={IMAGES.sidebar2} alt="Cica" style={{ width: "100%", borderRadius: 10, objectFit: "cover" }} />
               <img src={IMAGES.sidebar3} alt="Cica" style={{ width: "100%", borderRadius: 10, objectFit: "cover" }} />
