@@ -145,3 +145,53 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
+
+/* ─── DELETE: Reset click data ─── */
+export async function DELETE(request: NextRequest) {
+  try {
+    const redis = await getRedis();
+    const { searchParams } = new URL(request.url);
+    const target = searchParams.get("reset");
+
+    if (!target) {
+      return NextResponse.json({ error: "Missing reset target" }, { status: 400 });
+    }
+
+    if (target === "__all__") {
+      // Delete everything
+      const articlesHash = await redis.hGetAll("articles");
+      for (const aid of Object.keys(articlesHash)) {
+        await redis.del(`clicks:${aid}`);
+      }
+      await redis.del("clicks:all");
+      await redis.del("articles");
+    } else {
+      // Delete specific article data
+      await redis.del(`clicks:${target}`);
+      await redis.hDel("articles", target);
+
+      // Rebuild clicks:all without this article's events
+      const allRaw = await redis.zRangeByScore("clicks:all", "-inf", "+inf");
+      await redis.del("clicks:all");
+
+      for (const raw of allRaw) {
+        try {
+          const evt = JSON.parse(raw);
+          if (evt.articleId !== target) {
+            await redis.zAdd("clicks:all", {
+              score: new Date(evt.timestamp).getTime(),
+              value: raw,
+            });
+          }
+        } catch {
+          // skip malformed
+        }
+      }
+    }
+
+    return NextResponse.json({ success: true, reset: target });
+  } catch (err) {
+    console.error("Track DELETE error:", err);
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+  }
+}

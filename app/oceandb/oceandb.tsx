@@ -75,9 +75,13 @@ export default function OceanDB() {
   const [customFrom, setCustomFrom] = useState(getYesterday());
   const [customTo, setCustomTo] = useState(getToday());
   const [selectedButton, setSelectedButton] = useState<string | null>(null);
-  const [selectedArticle, setSelectedArticle] = useState<string>("__all__");
+  const [selectedArticle, setSelectedArticle] = useState<string>("");
   const [currentPage, setCurrentPage] = useState(1);
   const [autoRefresh, setAutoRefresh] = useState(true);
+  const [showReset, setShowReset] = useState(false);
+  const [resetCode, setResetCode] = useState("");
+  const [resetStatus, setResetStatus] = useState<string | null>(null);
+  const RESET_PIN = "1984"; // Change this to your own PIN
   const perPage = 25;
 
   const buildUrl = useCallback(() => {
@@ -104,7 +108,7 @@ export default function OceanDB() {
         break;
     }
 
-    if (selectedArticle !== "__all__") {
+    if (selectedArticle) {
       params.set("article", selectedArticle);
     }
 
@@ -118,12 +122,16 @@ export default function OceanDB() {
       const json: TrackResponse = await res.json();
       setData(json);
       setError(null);
+      // Auto-select first article if none selected
+      if (!selectedArticle && json.articles.length > 0) {
+        setSelectedArticle(json.articles[0].id);
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to fetch");
     } finally {
       setLoading(false);
     }
-  }, [buildUrl]);
+  }, [buildUrl, selectedArticle]);
 
   useEffect(() => { setLoading(true); fetchData(); }, [fetchData]);
 
@@ -176,19 +184,46 @@ export default function OceanDB() {
         .article-selector-bar label {
           font-size: 12px; color: #4a5568; text-transform: uppercase; letter-spacing: 1.5px; flex-shrink: 0;
         }
-        .article-select {
-          flex: 1; max-width: 400px;
-          padding: 8px 14px; border-radius: 6px;
-          border: 1px solid #1e293b; background: #0a0e1a; color: #e2e8f0;
-          font-family: 'IBM Plex Mono', monospace; font-size: 13px;
-          cursor: pointer;
+        .article-btn {
+          padding: 7px 16px; border-radius: 6px;
+          border: 1px solid #1e293b; background: #0a0e1a; color: #94a3b8;
+          font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+          cursor: pointer; transition: all 0.2s; white-space: nowrap;
         }
-        .article-select:focus { outline: none; border-color: #2dd4bf; }
+        .article-btn:hover { border-color: #818cf8; color: #e2e8f0; }
+        .article-btn.active {
+          background: rgba(129, 140, 248, 0.12); border-color: #818cf8; color: #818cf8;
+        }
         .article-count {
           font-size: 11px; color: #374151;
           background: rgba(45,212,191,0.08); border: 1px solid rgba(45,212,191,0.15);
-          padding: 4px 10px; border-radius: 20px;
+          padding: 4px 10px; border-radius: 20px; white-space: nowrap;
         }
+        .reset-danger-btn {
+          padding: 7px 14px; border-radius: 6px;
+          border: 1px solid rgba(239,68,68,0.3); background: rgba(239,68,68,0.06);
+          color: #ef4444; font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+          cursor: pointer; transition: all 0.2s; white-space: nowrap;
+        }
+        .reset-danger-btn:hover { background: rgba(239,68,68,0.15); border-color: #ef4444; }
+        .reset-panel {
+          background: rgba(239,68,68,0.04); border: 1px solid rgba(239,68,68,0.2);
+          border-radius: 10px; padding: 16px 20px; margin-bottom: 20px;
+        }
+        .reset-pin-input {
+          padding: 8px 14px; border-radius: 6px;
+          border: 1px solid rgba(239,68,68,0.3); background: #111827; color: #e2e8f0;
+          font-family: 'IBM Plex Mono', monospace; font-size: 14px;
+          width: 120px; letter-spacing: 4px; text-align: center;
+        }
+        .reset-pin-input:focus { outline: none; border-color: #ef4444; }
+        .reset-confirm-btn {
+          padding: 8px 18px; border-radius: 6px;
+          border: 1px solid #ef4444; background: #ef4444; color: #fff;
+          font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600;
+          cursor: pointer; transition: all 0.2s;
+        }
+        .reset-confirm-btn:hover { background: #dc2626; }
 
         .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; align-items: center; }
         .filter-btn {
@@ -298,21 +333,76 @@ export default function OceanDB() {
       </div>
 
       <div className="ocean-body">
-        {/* Article Selector */}
+        {/* Article Selector — individual buttons, no "All" */}
         <div className="article-selector-bar">
           <label>Article</label>
-          <select
-            className="article-select"
-            value={selectedArticle}
-            onChange={(e) => { setSelectedArticle(e.target.value); resetPage(); setSelectedButton(null); }}
-          >
-            <option value="__all__">All Articles</option>
+          <div style={{ display: "flex", gap: 8, flexWrap: "wrap", flex: 1 }}>
+            {articles.length === 0 && (
+              <span style={{ fontSize: 12, color: "#374151" }}>No articles tracked yet</span>
+            )}
             {articles.map((a) => (
-              <option key={a.id} value={a.id}>{a.name}</option>
+              <button
+                key={a.id}
+                className={`article-btn ${selectedArticle === a.id ? "active" : ""}`}
+                onClick={() => { setSelectedArticle(a.id); resetPage(); setSelectedButton(null); }}
+              >
+                {a.name}
+              </button>
             ))}
-          </select>
-          <span className="article-count">{articles.length} article{articles.length !== 1 ? "s" : ""} tracked</span>
+          </div>
+          <span className="article-count">{articles.length} tracked</span>
+          <button
+            className="reset-danger-btn"
+            onClick={() => setShowReset(!showReset)}
+          >
+            🗑 Reset
+          </button>
         </div>
+
+        {/* 2FA Reset Confirmation */}
+        {showReset && (
+          <div className="reset-panel">
+            <p style={{ margin: "0 0 12px", fontSize: 13, color: "#ef4444" }}>
+              ⚠ This will permanently delete all click data{selectedArticle ? ` for "${selectedArticle}"` : ""}. Enter your PIN to confirm.
+            </p>
+            <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+              <input
+                type="password"
+                placeholder="Enter PIN"
+                className="reset-pin-input"
+                value={resetCode}
+                onChange={(e) => setResetCode(e.target.value)}
+                maxLength={8}
+              />
+              <button
+                className="reset-confirm-btn"
+                onClick={async () => {
+                  if (resetCode !== RESET_PIN) {
+                    setResetStatus("❌ Wrong PIN");
+                    return;
+                  }
+                  try {
+                    const target = selectedArticle || "__all__";
+                    const res = await fetch(`/api/track?reset=${target}`, { method: "DELETE" });
+                    if (res.ok) {
+                      setResetStatus("✅ Data cleared");
+                      setResetCode("");
+                      setTimeout(() => { setShowReset(false); setResetStatus(null); fetchData(); }, 1500);
+                    } else {
+                      setResetStatus("❌ Failed to reset");
+                    }
+                  } catch {
+                    setResetStatus("❌ Error");
+                  }
+                }}
+              >
+                Confirm Reset
+              </button>
+              <button className="refresh-btn" onClick={() => { setShowReset(false); setResetCode(""); setResetStatus(null); }}>Cancel</button>
+            </div>
+            {resetStatus && <p style={{ margin: "8px 0 0", fontSize: 12, color: resetStatus.startsWith("✅") ? "#2ecc40" : "#ef4444" }}>{resetStatus}</p>}
+          </div>
+        )}
 
         {/* Date Filter Bar */}
         <div className="filter-bar">
@@ -382,8 +472,8 @@ export default function OceanDB() {
 
             {totalClicks === 0 && (
               <div className="empty-state">
-                <h3>No clicks recorded{selectedArticle !== "__all__" ? " for this article" : ""}</h3>
-                <p>Clicks will appear here in real-time.</p>
+                <h3>No clicks recorded{selectedArticle ? " for this article" : ""}</h3>
+                <p>{selectedArticle ? "Clicks will appear here in real-time." : "Select an article above to view its data."}</p>
                 <p style={{ marginTop: 8, color: "#2dd4bf" }}>Auto-refreshes every 10 seconds.</p>
               </div>
             )}
@@ -424,7 +514,7 @@ export default function OceanDB() {
                     <thead>
                       <tr>
                         <th style={{ width: 50 }}>#</th>
-                        {selectedArticle === "__all__" && <th>Article</th>}
+                        {!selectedArticle && <th>Article</th>}
                         <th>Button ID</th>
                         <th>Label</th>
                         <th>Timestamp</th>
@@ -434,7 +524,7 @@ export default function OceanDB() {
                       {pagedData.map((e, i) => (
                         <tr key={i}>
                           <td style={{ color: "#374151" }}>{(currentPage - 1) * perPage + i + 1}</td>
-                          {selectedArticle === "__all__" && (
+                          {!selectedArticle && (
                             <td><span className="article-tag">{e.articleId}</span></td>
                           )}
                           <td>

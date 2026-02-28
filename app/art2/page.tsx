@@ -770,7 +770,7 @@ export default function MirathelleArticle() {
                 Mire a vérvizsgálat emelkedett értékeket mutat, a károsodás már visszafordíthatatlan.
               </p>
               <p style={{ marginBottom: 16 }}>
-                Ez történt Kormossal. 9 évig ivott csapvizet egy tálból. Mire észrevettem, késő volt.
+                Ez történt Kormossal. 11 évig ivott csapvizet egy tálból. Mire észrevettem, késő volt.
               </p>
               <p style={{ marginBottom: 16 }}>
                 És majdnem ez történt Borókával is.

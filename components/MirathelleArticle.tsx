@@ -664,7 +664,7 @@ export default function MirathelleArticle() {
               </h3>
 
               <p style={{ marginBottom: 16 }}>
-                Három éve tartottam a karomban Kormost, utoljára. Veseelégtelenség. Csak 9 éves volt.
+                Három éve tartottam a karomban Kormost, utoljára. Veseelégtelenség. Csak 11 éves volt.
               </p>
 
               <div className="intro-two-col">
