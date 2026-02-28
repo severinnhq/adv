@@ -2,6 +2,18 @@
   "sidebar-cta": {
     "label": "Sidebar Zöld TOVÁBB",
     "daily": {
+      "2026-02-28": 2
+    }
+  },
+  "sticky-bar": {
+    "label": "Sticky Bottom CTA",
+    "daily": {
+      "2026-02-28": 1
+    }
+  },
+  "mid-article-cta": {
+    "label": "Ivókút - Közép CTA",
+    "daily": {
       "2026-02-28": 1
     }
   }

@@ -252,21 +252,27 @@ export default function MirathelleArticle() {
      .article-container a:hover { opacity: 0.85; }
 
         .hero-cta-bar {
-          position: sticky;
-          top: 0;
+          position: fixed;
+          bottom: 16px;
+          left: 50%;
+          transform: translateX(-50%);
           z-index: 100;
-          background: linear-gradient(135deg, #6b4c8a, #8360a6);
+          background: #2ecc40;
           text-align: center;
-          padding: 14px 20px;
-          box-shadow: 0 2px 12px rgba(107,76,138,0.25);
+          padding: 16px 20px;
+          box-shadow: 0 -2px 12px rgba(0,0,0,0.15);
+          border-radius: 12px;
+          width: 90%;
+          max-width: 600px;
         }
         .hero-cta-bar a {
           color: #fff;
           text-decoration: none;
-          font-family: 'Libre Baskerville', serif;
+          font-family: 'Source Sans 3', sans-serif;
           font-weight: 700;
-          font-size: 15px;
-          letter-spacing: 1px;
+          font-size: 16px;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
         }
 
         .article-img {
@@ -277,7 +283,7 @@ export default function MirathelleArticle() {
 
         .grid-4 {
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: repeat(2, 1fr);
           gap: 12px;
           margin: 24px 0;
         }
@@ -289,11 +295,11 @@ export default function MirathelleArticle() {
         }
 
         .product-highlight-card {
-          background: linear-gradient(145deg, #f5f0ea, #ede7dd);
+          background: linear-gradient(135deg, #6b4c8a, #8360a6);
           border-radius: 16px;
           overflow: hidden;
           margin: 40px 0;
-          border: 1px solid #ddd6ca;
+          border: none;
         }
 
         .inline-link {
@@ -301,6 +307,152 @@ export default function MirathelleArticle() {
           font-weight: 700;
           text-decoration: underline;
           text-underline-offset: 3px;
+        }
+
+        .moving-water-layout {
+          display: flex;
+          gap: 24px;
+          align-items: flex-start;
+          margin: 16px 0 24px;
+        }
+        .moving-water-text {
+          flex: 1;
+          min-width: 0;
+        }
+        .moving-water-img {
+          flex: 0 0 340px;
+          max-width: 340px;
+        }
+
+        @media (max-width: 600px) {
+          .moving-water-layout {
+            flex-direction: column;
+          }
+          .moving-water-img {
+            flex: none;
+            max-width: 100%;
+          }
+        }
+
+        /* Testimonials Grid */
+
+        /* Intro two-column layout */
+        .intro-two-col {
+          display: flex;
+          gap: 24px;
+          align-items: flex-start;
+          margin: 16px 0 24px;
+        }
+        .intro-two-col-text {
+          flex: 1;
+          min-width: 0;
+        }
+        .intro-two-col-img {
+          flex: 0 0 320px;
+          max-width: 320px;
+        }
+        .intro-bullet-block {
+          border-left: 3px solid #ddd;
+          padding-left: 20px;
+          margin-bottom: 8px;
+          position: relative;
+        }
+        .intro-bullet-block::before {
+          content: '•';
+          position: absolute;
+          left: -8px;
+          top: 0;
+          font-size: 20px;
+          color: #999;
+          line-height: 1.85;
+        }
+        @media (max-width: 600px) {
+          .intro-two-col {
+            flex-direction: column;
+          }
+          .intro-two-col-img {
+            flex: none;
+            max-width: 100%;
+          }
+        }
+
+        /* Testimonials Grid */
+        .testimonials-grid {
+          padding: 20px 0;
+          font-family: inherit;
+        }
+        .testimonials-title {
+          text-align: center;
+          font-family: 'Libre Baskerville', serif;
+          font-size: 42px;
+          font-weight: 700;
+          margin-bottom: 60px;
+          color: #2a2520;
+        }
+        .cards-wrapper {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 32px;
+        }
+        .testimonial-card {
+          position: relative;
+          background: #ffffff;
+          border-radius: 24px;
+          padding: 36px 32px 64px;
+          box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .tc-stars {
+          color: #ffc107;
+          font-size: 22px;
+          letter-spacing: 3px;
+          margin-bottom: 18px;
+        }
+        .tc-quote-icon {
+          position: absolute;
+          top: 24px;
+          right: 24px;
+          width: 38px;
+          height: 38px;
+          background: #64019f;
+          color: #ffffff;
+          font-size: 28px;
+          font-weight: 700;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .testimonial-card h3 {
+          font-size: 22px;
+          font-weight: 700;
+          margin-bottom: 16px;
+          color: #2a2520;
+        }
+        .testimonial-card p {
+          font-size: 17px;
+          line-height: 1.6;
+          color: #333333;
+        }
+        .tc-reviewer-name {
+          position: absolute;
+          bottom: 22px;
+          left: 50%;
+          transform: translateX(-50%);
+          font-size: 15px;
+          font-weight: 600;
+          color: #666666;
+        }
+        @media (max-width: 900px) {
+          .cards-wrapper {
+            grid-template-columns: 1fr;
+          }
+          .testimonials-title {
+            font-size: 30px;
+          }
         }
 
         .sidebar-imgs {
@@ -322,7 +474,7 @@ export default function MirathelleArticle() {
           display: flex;
           gap: 36px;
           padding: 0 24px;
-          align-items: flex-start;
+          align-items: stretch;
         }
 
         .main-content {
@@ -334,16 +486,8 @@ export default function MirathelleArticle() {
         .right-sidebar {
           width: 320px;
           flex-shrink: 0;
-          position: sticky;
-          top: 70px;
-          max-height: calc(100vh - 90px);
-          overflow-y: auto;
           padding-bottom: 40px;
         }
-
-        /* Hide scrollbar on sidebar */
-        .right-sidebar::-webkit-scrollbar { width: 0; }
-        .right-sidebar { scrollbar-width: none; }
 
         /* Responsive */
         @media (max-width: 1024px) {
@@ -358,9 +502,25 @@ export default function MirathelleArticle() {
       `}</style>
 
       <div className="article-container">
-        {/* ── Sticky CTA Bar ── */}
-        <div className="hero-cta-bar">
-          <a href={PRODUCT_URL} onClick={() => trackClick("sticky-bar", "Sticky Header CTA")}>→ KÉREM A MEGOLDÁST</a>
+        {/* ── Top Blog Header Bar ── */}
+        <div
+          style={{
+            background: "linear-gradient(135deg, #6b4c8a, #8360a6)",
+            textAlign: "center",
+            padding: "18px 20px",
+          }}
+        >
+          <span
+            style={{
+              fontFamily: "'Libre Baskerville', serif",
+              fontSize: "clamp(24px, 4vw, 36px)",
+              fontWeight: 700,
+              color: "#fff",
+              fontStyle: "italic",
+            }}
+          >
+            Anna cicanaplója
+          </span>
         </div>
 
         {/* ── Header section (full width, above two-col) ── */}
@@ -370,15 +530,19 @@ export default function MirathelleArticle() {
             style={{
               fontSize: 13,
               color: "#8a7e6e",
-              padding: "20px 0 10px",
+              padding: "24px 0 10px",
               fontFamily: "'Source Sans 3', sans-serif",
               maxWidth: 720,
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
             }}
           >
+            <span style={{ width: 14, height: 14, background: "#6b4c8a", borderRadius: 3, display: "inline-block", flexShrink: 0 }} />
             <span style={{ cursor: "pointer" }}>Cicák</span>
-            <span style={{ margin: "0 8px" }}>›</span>
+            <span>›</span>
             <span style={{ cursor: "pointer" }}>Cicák egészsége</span>
-            <span style={{ margin: "0 8px" }}>›</span>
+            <span>›</span>
             <span style={{ color: "#2a2520" }}>Vesebetegség</span>
           </nav>
 
@@ -386,44 +550,81 @@ export default function MirathelleArticle() {
           <h1
             style={{
               fontFamily: "'Libre Baskerville', serif",
-              fontSize: "clamp(22px, 4vw, 32px)",
+              fontSize: "clamp(28px, 5vw, 44px)",
               fontWeight: 700,
-              lineHeight: 1.35,
-              color: "#2a2520",
-              margin: "16px 0 12px",
+              lineHeight: 1.25,
+              color: "#1a1a1a",
+              margin: "16px 0 20px",
               maxWidth: 720,
             }}
           >
             Majdnem Elveszítettem A Második Cicámat Ugyanabban, Ami Az Elsőt Is Elvitte
           </h1>
 
-          {/* Meta */}
+          {/* Meta with calendar icon */}
           <div
             style={{
               display: "flex",
               alignItems: "center",
-              gap: 12,
-              fontSize: 13,
-              color: "#8a7e6e",
-              marginBottom: 24,
+              gap: 8,
+              fontSize: 14,
+              color: "#64748b",
+              padding: "10px 0",
               fontFamily: "'Source Sans 3', sans-serif",
-              flexWrap: "wrap",
               maxWidth: 720,
             }}
           >
-            <span>2026. Jan. 18.</span>
-            <span>|</span>
-            <span>11:11</span>
-            <span>-</span>
-            <span>11,228</span>
+            <div style={{ width: 20, height: 20, background: "#cbd5e1", borderRadius: 3, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, padding: 3 }}>
+              <svg viewBox="0 0 110.01 122.88" style={{ width: "100%", height: "100%", fill: "#475569" }}><path d="M1.87,14.69h22.66L24.5,14.3V4.13C24.5,1.86,26.86,0,29.76,0c2.89,0,5.26,1.87,5.26,4.13V14.3l-0.03,0.39 h38.59l-0.03-0.39V4.13C73.55,1.86,75.91,0,78.8,0c2.89,0,5.26,1.87,5.26,4.13V14.3l-0.03,0.39h24.11c1.03,0,1.87,0.84,1.87,1.87 v19.46c0,1.03-0.84,1.87-1.87,1.87H1.87C0.84,37.88,0,37.04,0,36.01V16.55C0,15.52,0.84,14.69,1.87,14.69L1.87,14.69z M0.47,42.19 h109.08c0.26,0,0.46,0.21,0.46,0.46l0,0v79.76c0,0.25-0.21,0.46-0.46,0.46l-109.08,0c-0.25,0-0.47-0.21-0.47-0.46V42.66 C0,42.4,0.21,42.19,0.47,42.19L0.47,42.19L0.47,42.19z"/></svg>
+            </div>
+            <span>2026. Jan. 18. | 11:11</span>
+            <span style={{ margin: "0 4px" }}>-</span>
+            <span style={{ display: "flex", alignItems: "center", gap: 4 }}>
+              11,228
+              <span style={{ width: 16, height: 16, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <svg viewBox="0 0 122.88 83.78" style={{ width: "100%", height: "100%", fill: "#64748b" }}><path d="M95.73,10.81c10.53,7.09,19.6,17.37,26.48,29.86l0.67,1.22l-0.67,1.21c-6.88,12.49-15.96,22.77-26.48,29.86 C85.46,79.88,73.8,83.78,61.44,83.78c-12.36,0-24.02-3.9-34.28-10.81C16.62,65.87,7.55,55.59,0.67,43.1L0,41.89l0.67-1.22 c6.88-12.49,15.95-22.77,26.48-29.86C37.42,3.9,49.08,0,61.44,0C73.8,0,85.45,3.9,95.73,10.81L95.73,10.81z M60.79,22.17l4.08,0.39 c-1.45,2.18-2.31,4.82-2.31,7.67c0,7.48,5.86,13.54,13.1,13.54c2.32,0,4.5-0.62,6.39-1.72c0.03,0.47,0.05,0.94,0.05,1.42 c0,11.77-9.54,21.31-21.31,21.31c-11.77,0-21.31-9.54-21.31-21.31C39.48,31.71,49.02,22.17,60.79,22.17L60.79,22.17L60.79,22.17z M109,41.89c-5.5-9.66-12.61-17.6-20.79-23.11c-8.05-5.42-17.15-8.48-26.77-8.48c-9.61,0-18.71,3.06-26.76,8.48 c-8.18,5.51-15.29,13.45-20.8,23.11c5.5,9.66,12.62,17.6,20.8,23.1c8.05,5.42,17.15,8.48,26.76,8.48c9.62,0,18.71-3.06,26.77-8.48 C96.39,59.49,103.5,51.55,109,41.89L109,41.89z"/></svg>
+              </span>
+            </span>
           </div>
 
-          {/* Author */}
-          <div style={{ fontSize: 14, color: "#5a5549", marginBottom: 8, maxWidth: 720 }}>
-            Írta: <strong>Fodor Anna</strong>
-          </div>
-          <div style={{ fontSize: 13, fontStyle: "italic", color: "#8a7e6e", marginBottom: 28, maxWidth: 720 }}>
-            egy felelősségteljes cica gazdi
+          {/* Author + Social Icons Row */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              padding: "15px 0",
+              borderTop: "1px solid #e2e8f0",
+              borderBottom: "1px solid #e2e8f0",
+              maxWidth: 720,
+              marginBottom: 28,
+            }}
+          >
+            <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+              <div style={{ fontSize: 14, color: "#334155" }}>
+                Írta: <span style={{ fontWeight: 700 }}>Fodor Anna</span>
+              </div>
+              <div style={{ fontSize: 14, color: "#334155" }}>
+                egy felelősségteljes cica gazdi
+              </div>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+              <a href="#" style={{ width: 35, height: 35, borderRadius: "50%", background: "#3b5998", display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none" }}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style={{ width: 20, height: 20, fill: "#fff" }}><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+              <a href="#" style={{ width: 35, height: 35, borderRadius: "50%", background: "#1da1f2", display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none" }}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style={{ width: 20, height: 20, fill: "#fff" }}><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+              </a>
+              <a href="#" style={{ width: 35, height: 35, borderRadius: "50%", background: "#e60023", display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none" }}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style={{ width: 20, height: 20, fill: "#fff" }}><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.443.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.242 0-2.407-.651-2.807-1.416 0 0-.614 2.34-.762 2.91-.275 1.061-1.02 2.393-1.52 3.201 1.144.35 2.356.535 3.609.535 6.621 0 11.987-5.367 11.987-11.987C23.97 5.39 18.592.026 11.971.026L12.017 0z"/></svg>
+              </a>
+              <a href="#" style={{ width: 35, height: 35, borderRadius: "50%", background: "#25d366", display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none" }}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style={{ width: 20, height: 20, fill: "#fff" }}><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+              <a href="#" style={{ width: 35, height: 35, borderRadius: "50%", background: "#333333", display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none" }}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style={{ width: 20, height: 20, fill: "#fff" }}><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -457,37 +658,33 @@ export default function MirathelleArticle() {
               </h3>
 
               <p style={{ marginBottom: 16 }}>
-                Három éve tartottam a karomban Kormost, utoljára.
-                <br />
-                Veseelégtelenség. Csak 9 éves volt.
-              </p>
-              <p style={{ marginBottom: 16 }}>
-                Az állatorvos azt mondta, ez gyakori.{" "}
-                <strong><em>A cicák elrejtik a fájdalmat, amíg nem késő.</em></strong>{" "}
-                Mire Kormos abbahagyta az evést, a veséi már tönkrementek.
-              </p>
-              <p style={{ marginBottom: 16 }}>
-                Hónapokig hibáztattam magam.
-                <br />
-                Mit nem vettem észre? Mit csináltam rosszul?
-              </p>
-              <p style={{ marginBottom: 16 }}>
-                Amikor örökbe fogadtam Borókát, megesküdtem, hogy másképp lesz.
-                <br />
-                Ezúttal mindent jól csináltam.
-              </p>
-              <p style={{ marginBottom: 16 }}>
-                Prémium nedves és száraz táp vegyesen.{" "}
-                <strong><em>Állatorvosi vizsgálat félévente.</em></strong>{" "}
-                Semmi olcsó jutalomfalat. Még speciális vesevédő táplálékkiegészítőt is vettem.
-              </p>
-              <p style={{ marginBottom: 16 }}>
-                Két évig Boróka virágzott.
-                <br />
-                Aztán jöttek a vérvizsgálati eredmények, amiktől megállt a szívem.
+                Három éve tartottam a karomban Kormost, utoljára. Veseelégtelenség. Csak 9 éves volt.
               </p>
 
-              <img src={IMAGES.catSad} alt="Szomorú cica" className="article-img" />
+              <div className="intro-two-col">
+                <div className="intro-two-col-text">
+                  <div className="intro-bullet-block">
+                    <p style={{ marginBottom: 16 }}>
+                      Az állatorvos azt mondta, ez gyakori.{" "}
+                      <strong><em>A cicák elrejtik a fájdalmat, amíg nem késő.</em></strong>{" "}
+                      Mire Kormos abbahagyta az evést, a veséi már tönkrementek. Hónapokig hibáztattam magam.
+                      Mit nem vettem észre? Mit csináltam rosszul? Amikor örökbe fogadtam Borókát, megesküdtem, hogy
+                      másképp lesz. Ezúttal mindent jól csináltam.
+                    </p>
+                  </div>
+                  <div className="intro-bullet-block">
+                    <p style={{ marginBottom: 16 }}>
+                      Prémium nedves és száraz táp vegyesen.{" "}
+                      <strong><em>Állatorvosi vizsgálat félévente.</em></strong>{" "}
+                      Semmi olcsó jutalomfalat. Még speciális vesevédő táplálékkiegészítőt is vettem.
+                      Két évig Boróka virágzott. Aztán jöttek a vérvizsgálati eredmények, amiktől megállt a szívem.
+                    </p>
+                  </div>
+                </div>
+                <div className="intro-two-col-img">
+                  <img src={IMAGES.catSad} alt="Szomorú cica" style={{ width: "100%", borderRadius: 10, objectFit: "cover" }} />
+                </div>
+              </div>
 
               <h3
                 style={{
@@ -605,26 +802,31 @@ export default function MirathelleArticle() {
                 Miért Változtat Meg Mindent A Mozgó Víz
               </h3>
 
-              <p style={{ marginBottom: 16 }}>
-                A cicákat vonzza a mozgó víz.
-                <br />
-                Ez be van égetve az agyukba. A folyó víz friss vizet jelent. Biztonságos vizet. Életet.
-              </p>
-              <p style={{ marginBottom: 16 }}>
-                Kutatások szerint a cicák 3x több vizet isznak, ha az áramlik és mozog.
-              </p>
-              <ul style={{ margin: "16px 0", paddingLeft: 24, lineHeight: 2, color: "#3a352e" }}>
-                <li>A bajszuk nem ér az oldalához (amit utálnak).</li>
-                <li>A hang vonzza őket.</li>
-                <li>A mozgás azt üzeni az ösztöneiknek: ez a víz biztonságos.</li>
-              </ul>
-              <p style={{ marginBottom: 16 }}>
-                Találnom kellett egy módot, hogy Borókának 0-24 folyó vizet adjak.
-                <br />
-                Ekkor fedeztem fel a <strong>Mirathelle Macska Ivókutat</strong>.
-              </p>
-
-              <img src={IMAGES.fountain} alt="Mirathelle Macska Ivókút" className="article-img" />
+              <div className="moving-water-layout">
+                <div className="moving-water-text">
+                  <p style={{ marginBottom: 16 }}>
+                    A cicákat vonzza a mozgó víz.
+                    <br />
+                    Ez be van égetve az agyukba. A folyó víz friss vizet jelent. Biztonságos vizet. Életet.
+                  </p>
+                  <p style={{ marginBottom: 16 }}>
+                    Kutatások szerint a cicák 3x több vizet isznak, ha az áramlik és mozog.
+                  </p>
+                  <ul style={{ margin: "16px 0", paddingLeft: 24, lineHeight: 2, color: "#3a352e" }}>
+                    <li>A bajszuk nem ér az oldalához (amit utálnak).</li>
+                    <li>A hang vonzza őket.</li>
+                    <li>A mozgás azt üzeni az ösztöneiknek: ez a víz biztonságos.</li>
+                  </ul>
+                  <p style={{ marginBottom: 16 }}>
+                    Találnom kellett egy módot, hogy Borókának 0-24 folyó vizet adjak.
+                    <br />
+                    Ekkor fedeztem fel a <strong>Mirathelle Macska Ivókutat</strong>.
+                  </p>
+                </div>
+                <div className="moving-water-img">
+                  <img src={IMAGES.fountain} alt="Mirathelle Macska Ivókút" style={{ width: "100%", borderRadius: 10, objectFit: "cover" }} />
+                </div>
+              </div>
 
               <h3
                 style={{
@@ -714,22 +916,45 @@ export default function MirathelleArticle() {
 
               {/* ═══ PRODUCT CARD ═══ */}
               <div className="product-highlight-card">
-                <div style={{ textAlign: "center", padding: "36px 24px" }}>
-                  <h2
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "28px 32px", flexWrap: "wrap", gap: 16 }}>
+                  <div>
+                    <h2
+                      style={{
+                        fontFamily: "'Libre Baskerville', serif",
+                        fontSize: 24,
+                        fontWeight: 700,
+                        color: "#fff",
+                        marginBottom: 4,
+                      }}
+                    >
+                      Mirathelle Ivókút
+                    </h2>
+                    <p style={{ fontSize: 14, color: "rgba(255,255,255,0.85)", fontWeight: 500, margin: 0 }}>
+                      4 Hónapnyi Ajándék Szűrővel
+                    </p>
+                  </div>
+                  <a
+                    href={PRODUCT_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackClick("mid-article-cta", "Ivókút - Közép CTA")}
                     style={{
-                      fontFamily: "'Libre Baskerville', serif",
-                      fontSize: 24,
+                      display: "inline-block",
+                      background: "#2ecc40",
+                      color: "#fff",
+                      borderRadius: 8,
+                      padding: "16px 40px",
+                      fontFamily: "'Source Sans 3', sans-serif",
+                      fontSize: 16,
                       fontWeight: 700,
-                      color: "#2a2520",
-                      marginBottom: 8,
+                      textDecoration: "none",
+                      letterSpacing: 1.5,
+                      textTransform: "uppercase",
+                      flexShrink: 0,
                     }}
                   >
-                    Mirathelle Ivókút
-                  </h2>
-                  <p style={{ fontSize: 14, color: "#6b4c8a", fontWeight: 600, marginBottom: 24 }}>
-                    4 Hónapnyi Ajándék Szűrővel
-                  </p>
-                  <CTAButton href={PRODUCT_URL} trackId="mid-article-cta" trackLabel="Ivókút - Közép CTA">TOVÁBB</CTAButton>
+                    TOVÁBB
+                  </a>
                 </div>
               </div>
 
@@ -866,7 +1091,7 @@ export default function MirathelleArticle() {
               <img
                 src={IMAGES.productCard}
                 alt="Mirathelle Ivókút"
-                style={{ width: "100%", objectFit: "cover", maxHeight: 360 }}
+                style={{ width: "100%", maxWidth: 400, objectFit: "cover", margin: "0 auto", display: "block" }}
               />
               <div style={{ padding: "28px 24px", textAlign: "center" }}>
                 <h2
@@ -902,30 +1127,29 @@ export default function MirathelleArticle() {
             </div>
 
             {/* ═══ REVIEWS (inline) ═══ */}
-            <div style={{ marginBottom: 48 }}>
-              <h2
-                style={{
-                  fontFamily: "'Libre Baskerville', serif",
-                  fontSize: 24,
-                  fontWeight: 700,
-                  textAlign: "center",
-                  marginBottom: 28,
-                  color: "#2a2520",
-                }}
-              >
-                Másoknak is bevált
-              </h2>
-              <div style={{ display: "flex", gap: 20, flexWrap: "wrap", justifyContent: "center" }}>
-                <ReviewCard
-                  name="Attila D."
-                  title="Tökéletes ivókút nem léte..."
-                  text="A múltban vettem jó néhány ivókutat nagy állatkereskedési láncokból, eddig sosem volt az igazi. Féltem is kicsit, amikor ezt megrendeltem, de hatalmas pozitív csalódás volt. A rozsdamentes acél megnyugtat. A macskák pedig imádják. Sokkal több vizet isznak, mióta megkapták."
-                />
-                <ReviewCard
-                  name="Kata N."
-                  title="Hatalmas változás a macska általános egészségi állapotában"
-                  text="Miért nem vettem meg ezt hamarabb? Szinte teljesen hangtalan, és a macskáim több vizet isznak, mint valaha. Óriási változást hozott az emésztésükben! A szőrük is egészségesebbnek tűnik."
-                />
+            <div className="testimonials-grid" style={{ marginBottom: 48 }}>
+              <h2 className="testimonials-title">Másoknak is bevált</h2>
+              <div className="cards-wrapper">
+                {/* CARD 1 */}
+                <div className="testimonial-card">
+                  <div className="tc-stars">★★★★★</div>
+                  <div className="tc-quote-icon">&ldquo;</div>
+                  <h3>Tökéletes ivókút nem léte...</h3>
+                  <p>
+                    A múltban vettem jó néhány ivókutat nagy állatkereskedési láncokból, eddig sosem volt az igazi vagy sosem működött, vagy csak rövid ideig. Féltem is kicsit, amikor ezt megrendeltem, de hatalmas pozitív csalódás volt. Nagyon elégedett vagyok. A rozsdamentes acél megnyugtat a mosások közötti túlzott baktériumszaporodás ellen. Nem is lehetne egyszerűbb felállítani és feltölteni. A macskák pedig imádják. Sokkal több vizet isznak, mióta megkapták. Az is tetszik, hogy jó mennyiségű vizet tárol anélkül, hogy túl sok helyet foglalna.
+                  </p>
+                  <div className="tc-reviewer-name">Attila D.</div>
+                </div>
+                {/* CARD 2 */}
+                <div className="testimonial-card">
+                  <div className="tc-stars">★★★★★</div>
+                  <div className="tc-quote-icon">&ldquo;</div>
+                  <h3>Hatalmas változás a macska általános egészségi állapotában</h3>
+                  <p>
+                    Miért nem vettem meg ezt hamarabb? Szinte teljesen hangtalan, és a macskáim több vizet isznak, mint valaha. Óriási változást hozott az emésztésükben! Rendszeresebben végeznek (és nem azok az apró székrekedéses golyócskák, hanem rendes ürülék), és a szőrük is egészségesebbnek tűnik. Csak ügyelj rá, hogy néhány naponta tisztítsd, mert elég csúnyává válhat odabent, de nagyon könnyű szétszedni!
+                  </p>
+                  <div className="tc-reviewer-name">Kata N.</div>
+                </div>
               </div>
             </div>
 
@@ -961,23 +1185,11 @@ export default function MirathelleArticle() {
                 answer="Igen, 304-es rozsdamentes acélból készült."
               />
             </div>
-
-            {/* Sidebar images */}
-            <div className="sidebar-imgs">
-              <img src={IMAGES.sidebar1} alt="Cica" />
-              <img src={IMAGES.sidebar2} alt="Cica" />
-              <img src={IMAGES.sidebar3} alt="Cica" />
-            </div>
-
-            {/* Final CTA */}
-            <div style={{ textAlign: "center", padding: "40px 0 60px" }}>
-              <CTAButton href={PRODUCT_URL} trackId="final-cta" trackLabel="Legalsó Tovább gomb">Tovább</CTAButton>
-            </div>
           </div>
 
           {/* ────────────── RIGHT: Sticky Sidebar ────────────── */}
           <aside className="right-sidebar">
-            {/* Product Widget */}
+            {/* Video Placeholder (blank - ready for video embed) */}
             <div
               style={{
                 background: "#fff",
@@ -988,11 +1200,8 @@ export default function MirathelleArticle() {
                 boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
               }}
             >
-              <img
-                src={IMAGES.sidebarProduct}
-                alt="Mirathelle Ivókút"
-                style={{ width: "100%", objectFit: "cover", height: 200 }}
-              />
+              {/* Empty space for video - replace this div with your video embed */}
+              <div style={{ width: "100%", aspectRatio: "9/16", background: "#f0ece4" }} />
               <div style={{ padding: 16, textAlign: "center" }}>
                 <a
                   href={PRODUCT_URL}
@@ -1019,63 +1228,20 @@ export default function MirathelleArticle() {
               </div>
             </div>
 
-            {/* Sidebar Reviews */}
-            <div style={{ marginTop: 28, padding: "0 4px" }}>
-              <SidebarReview
-                initials="SR"
-                color="#6b4c8a"
-                name="Szabó Rita"
-                date="2 napja"
-                text="Végre felelős gazdi vagyok! Korábban mindig aggódtam, hogy Max elég vizet iszik-e, de mióta megvan a Mirathelle, nyugodt vagyok. Látom, hogy folyamatosan issza a friss, szűrt vizet - már nem kell aggódnom a veseproblémák miatt. A legjobb befektetés volt, amit valaha tettem a cicám egészségéért. Minden felelős macskgazdának ajánlom!"
-                image={IMAGES.sidebar1}
-              />
-
-              <div style={{ borderTop: "1px solid #eee", margin: "12px 0" }} />
-
-              <SidebarReview
-                initials="FP"
-                color="#d4a34a"
-                name="Ferenczi Petra"
-                date="3 napja"
-                text="Mindenki kérdezte tőlem, hogy mi változott, mert a cicám szőre teljesen megújult. Megmondom: az ivókút. Mióta megvan, háromszor annyi vizet iszik, mint előtte. Az állatorvos is megdicsérte a legutóbbi vizsgálaton."
-                image={IMAGES.sidebar2}
-              />
-
-              <div style={{ borderTop: "1px solid #eee", margin: "12px 0" }} />
-
-              <SidebarReview
-                initials="KM"
-                color="#e07c5a"
-                name="Kovács Mária"
-                date="5 napja"
-                text="Két cicám van és mindkettő imádja. Az első naptól elkezdtek többet inni. Teljesen halk, könnyen tisztítható. Nem értem, miért nem vettem hamarabb!"
-              />
-
-              <div style={{ borderTop: "1px solid #eee", margin: "12px 0" }} />
-
-              <SidebarReview
-                initials="NT"
-                color="#5a9e6f"
-                name="Nagy Tamás"
-                date="1 hete"
-                text="A macskám 12 éves és az állatorvos figyelmeztett a vesékre. Azóta, hogy megvan az ivókút, a vérvizsgálati eredményei stabilak. Megérte minden forintot."
-              />
+            {/* 3 Images Stacked Vertically */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 20 }}>
+              <img src={IMAGES.sidebar1} alt="Cica" style={{ width: "100%", borderRadius: 10, objectFit: "cover" }} />
+              <img src={IMAGES.sidebar2} alt="Cica" style={{ width: "100%", borderRadius: 10, objectFit: "cover" }} />
+              <img src={IMAGES.sidebar3} alt="Cica" style={{ width: "100%", borderRadius: 10, objectFit: "cover" }} />
             </div>
           </aside>
         </div>
 
-        {/* Footer */}
-        <div
-          style={{
-            background: "#2a2520",
-            padding: "40px 20px",
-            textAlign: "center",
-            color: "#8a7e6e",
-            fontSize: 13,
-          }}
-        >
-          <p>© 2026 Mirathelle. Minden jog fenntartva.</p>
-        </div>
+      </div>
+
+      {/* ── Fixed Bottom CTA ── */}
+      <div className="hero-cta-bar">
+        <a href={PRODUCT_URL} onClick={() => trackClick("sticky-bar", "Sticky Bottom CTA")}>→ KÉREM A MEGOLDÁST</a>
       </div>
     </div>
   );
