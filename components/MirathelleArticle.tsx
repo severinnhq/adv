@@ -264,8 +264,7 @@ export default function MirathelleArticle() {
           border-radius: 12px;
           width: 90%;
           max-width: 600px;
-        }
-        .hero-cta-bar a {
+          display: block;
           color: #fff;
           text-decoration: none;
           font-family: 'Source Sans 3', sans-serif;
@@ -273,6 +272,10 @@ export default function MirathelleArticle() {
           font-size: 16px;
           letter-spacing: 1.5px;
           text-transform: uppercase;
+          cursor: pointer;
+        }
+        .hero-cta-bar:hover {
+          background: #27ae35;
         }
 
         .article-img {
@@ -1036,7 +1039,7 @@ export default function MirathelleArticle() {
                 A cicák IMÁDJÁK a mozgó vizet. Ez biológia.
               </p>
               <p style={{ marginBottom: 24 }}>
-                <a href={PRODUCT_URL} className="inline-link" onClick={() => trackClick("link1-boroka", "👉 Link1 - Megmentette Borókát")}>
+                <a href={PRODUCT_URL} target="_blank" rel="noopener noreferrer" className="inline-link" onClick={() => trackClick("link1-boroka", "👉 Link1 - Megmentette Borókát")}>
                   👉 Kattints Ide, Hogy Megnézd Az Ivókutat, Ami Megmentette Borókát
                 </a>
               </p>
@@ -1054,7 +1057,7 @@ export default function MirathelleArticle() {
                 Csak ennyit akartam.
               </p>
               <p style={{ marginBottom: 24 }}>
-                <a href={PRODUCT_URL} className="inline-link" onClick={() => trackClick("link2-keszlet", "👉 Link2 - Készleten Van")}>
+                <a href={PRODUCT_URL} target="_blank" rel="noopener noreferrer" className="inline-link" onClick={() => trackClick("link2-keszlet", "👉 Link2 - Készleten Van")}>
                   👉 Szerezd Be A Mirathelle Ivókutat, Amíg Készleten Van
                 </a>
               </p>
@@ -1071,7 +1074,7 @@ export default function MirathelleArticle() {
                 Boróka minden iváskor megköszöni.
               </p>
               <p style={{ marginBottom: 40 }}>
-                <a href={PRODUCT_URL} className="inline-link" onClick={() => trackClick("link3-szurok", "👉 Link3 - Ingyenes Szűrők")}>
+                <a href={PRODUCT_URL} target="_blank" rel="noopener noreferrer" className="inline-link" onClick={() => trackClick("link3-szurok", "👉 Link3 - Ingyenes Szűrők")}>
                   👉 Nézd Meg, Amég Ingyenes Szűrőket Is Adnak Ajándékba Mellé
                 </a>
               </p>
@@ -1240,9 +1243,15 @@ export default function MirathelleArticle() {
       </div>
 
       {/* ── Fixed Bottom CTA ── */}
-      <div className="hero-cta-bar">
-        <a href={PRODUCT_URL} onClick={() => trackClick("sticky-bar", "Sticky Bottom CTA")}>→ KÉREM A MEGOLDÁST</a>
-      </div>
+      <a
+        href={PRODUCT_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hero-cta-bar"
+        onClick={() => trackClick("sticky-bar", "Sticky Bottom CTA")}
+      >
+        → KÉREM A MEGOLDÁST
+      </a>
     </div>
   );
 }
