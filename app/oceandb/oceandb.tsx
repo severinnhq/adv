@@ -74,7 +74,7 @@ export default function OceanDB() {
   const [data, setData] = useState<TrackResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [preset, setPreset] = useState<FilterPreset>("all");
+  const [preset, setPreset] = useState<FilterPreset>("today");
   const [customFrom, setCustomFrom] = useState(getYesterday());
   const [customTo, setCustomTo] = useState(getToday());
   const [selectedButton, setSelectedButton] = useState<string | null>(null);
