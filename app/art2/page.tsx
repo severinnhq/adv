@@ -2,12 +2,11 @@
 
 import React, { useState } from "react";
 
-
 const PRODUCT_URL = "https://mirathelle.com/products/ivokut?ref=article";
 
 /* ─── Click Tracking ─── */
-const ARTICLE_ID = "mirathelle-ivokut";
-const ARTICLE_NAME = "Mirathelle Ivókút - Boróka";
+const ARTICLE_ID = "mirathelle-ivokut-2";
+const ARTICLE_NAME = "Mirathelle Ivókút - 247 Üzenet";
 
 function trackClick(id: string, label: string) {
   fetch("/api/track", {
@@ -170,8 +169,6 @@ function CTAButton({
   );
 }
 
-/* ─── Sidebar Review (compact card with avatar initials) ─── */
-
 function SidebarReview({
   initials,
   color,
@@ -189,7 +186,6 @@ function SidebarReview({
 }) {
   return (
     <div style={{ marginBottom: 20 }}>
-      {/* Header */}
       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
         <div
           style={{
@@ -216,13 +212,10 @@ function SidebarReview({
           <div style={{ fontSize: 11, color: "#999" }}>{date}</div>
         </div>
       </div>
-      {/* Stars */}
       <div style={{ color: "#f5a623", fontSize: 15, letterSpacing: 1, marginBottom: 8 }}>
         ★★★★★
       </div>
-      {/* Text */}
       <p style={{ fontSize: 13, lineHeight: 1.65, color: "#444", margin: 0 }}>{text}</p>
-      {/* Optional image  */}
       {image && (
         <img
           src={image}
@@ -250,9 +243,7 @@ export default function MirathelleArticle() {
       }}
     >
       <style>{`
-
-
-     .article-container a:hover { opacity: 0.85; }
+        .article-container a:hover { opacity: 0.85; }
 
         .hero-cta-bar {
           position: fixed;
@@ -340,9 +331,6 @@ export default function MirathelleArticle() {
           }
         }
 
-        /* Testimonials Grid */
-
-        /* Intro two-column layout */
         .intro-two-col {
           display: flex;
           gap: 24px;
@@ -382,7 +370,6 @@ export default function MirathelleArticle() {
           }
         }
 
-        /* Testimonials Grid */
         .testimonials-grid {
           padding: 20px 0;
           font-family: inherit;
@@ -473,7 +460,6 @@ export default function MirathelleArticle() {
           height: 200px;
         }
 
-        /* ── Two-column layout ── */
         .two-col-wrapper {
           max-width: 1200px;
           margin: 0 auto;
@@ -495,7 +481,6 @@ export default function MirathelleArticle() {
           padding-bottom: 40px;
         }
 
-        /* Responsive */
         @media (max-width: 1024px) {
           .right-sidebar { display: none; }
           .two-col-wrapper { justify-content: center; }
@@ -529,7 +514,7 @@ export default function MirathelleArticle() {
           </span>
         </div>
 
-        {/* ── Header section (full width, above two-col) ── */}
+        {/* ── Header section ── */}
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
           {/* Breadcrumb */}
           <nav
@@ -549,7 +534,7 @@ export default function MirathelleArticle() {
             <span>›</span>
             <span style={{ cursor: "pointer" }}>Cicák egészsége</span>
             <span>›</span>
-            <span style={{ color: "#2a2520" }}>Vesebetegség</span>
+            <span style={{ color: "#2a2520" }}>Vesebetegség megelőzése</span>
           </nav>
 
           {/* Title */}
@@ -564,10 +549,10 @@ export default function MirathelleArticle() {
               maxWidth: 720,
             }}
           >
-            Majdnem Elveszítettem A Második Cicámat Ugyanabban, Ami Az Elsőt Is Elvitte
+            247 Üzenetet Kaptam Boróka Története Után. Mind Ugyanazt Kérdezte.
           </h1>
 
-          {/* Meta with calendar icon */}
+          {/* Meta */}
           <div
             style={{
               display: "flex",
@@ -583,17 +568,17 @@ export default function MirathelleArticle() {
             <div style={{ width: 20, height: 20, background: "#cbd5e1", borderRadius: 3, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, padding: 3 }}>
               <svg viewBox="0 0 110.01 122.88" style={{ width: "100%", height: "100%", fill: "#475569" }}><path d="M1.87,14.69h22.66L24.5,14.3V4.13C24.5,1.86,26.86,0,29.76,0c2.89,0,5.26,1.87,5.26,4.13V14.3l-0.03,0.39 h38.59l-0.03-0.39V4.13C73.55,1.86,75.91,0,78.8,0c2.89,0,5.26,1.87,5.26,4.13V14.3l-0.03,0.39h24.11c1.03,0,1.87,0.84,1.87,1.87 v19.46c0,1.03-0.84,1.87-1.87,1.87H1.87C0.84,37.88,0,37.04,0,36.01V16.55C0,15.52,0.84,14.69,1.87,14.69L1.87,14.69z M0.47,42.19 h109.08c0.26,0,0.46,0.21,0.46,0.46l0,0v79.76c0,0.25-0.21,0.46-0.46,0.46l-109.08,0c-0.25,0-0.47-0.21-0.47-0.46V42.66 C0,42.4,0.21,42.19,0.47,42.19L0.47,42.19L0.47,42.19z"/></svg>
             </div>
-            <span>2026. Jan. 18. | 11:11</span>
+            <span>2026. Feb. 12. | 09:34</span>
             <span style={{ margin: "0 4px" }}>-</span>
             <span style={{ display: "flex", alignItems: "center", gap: 4 }}>
-              11,228
+              14,891
               <span style={{ width: 16, height: 16, display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <svg viewBox="0 0 122.88 83.78" style={{ width: "100%", height: "100%", fill: "#64748b" }}><path d="M95.73,10.81c10.53,7.09,19.6,17.37,26.48,29.86l0.67,1.22l-0.67,1.21c-6.88,12.49-15.96,22.77-26.48,29.86 C85.46,79.88,73.8,83.78,61.44,83.78c-12.36,0-24.02-3.9-34.28-10.81C16.62,65.87,7.55,55.59,0.67,43.1L0,41.89l0.67-1.22 c6.88-12.49,15.95-22.77,26.48-29.86C37.42,3.9,49.08,0,61.44,0C73.8,0,85.45,3.9,95.73,10.81L95.73,10.81z M60.79,22.17l4.08,0.39 c-1.45,2.18-2.31,4.82-2.31,7.67c0,7.48,5.86,13.54,13.1,13.54c2.32,0,4.5-0.62,6.39-1.72c0.03,0.47,0.05,0.94,0.05,1.42 c0,11.77-9.54,21.31-21.31,21.31c-11.77,0-21.31-9.54-21.31-21.31C39.48,31.71,49.02,22.17,60.79,22.17L60.79,22.17L60.79,22.17z M109,41.89c-5.5-9.66-12.61-17.6-20.79-23.11c-8.05-5.42-17.15-8.48-26.77-8.48c-9.61,0-18.71,3.06-26.76,8.48 c-8.18,5.51-15.29,13.45-20.8,23.11c5.5,9.66,12.62,17.6,20.8,23.1c8.05,5.42,17.15,8.48,26.76,8.48c9.62,0,18.71-3.06,26.77-8.48 C96.39,59.49,103.5,51.55,109,41.89L109,41.89z"/></svg>
               </span>
             </span>
           </div>
 
-          {/* Author + Social Icons Row */}
+          {/* Author + Social Icons */}
           <div
             style={{
               display: "flex",
@@ -634,7 +619,7 @@ export default function MirathelleArticle() {
           </div>
         </div>
 
-        {/* ══ Two-Column Layout (starts at hero image) ══ */}
+        {/* ══ Two-Column Layout ══ */}
         <div className="two-col-wrapper">
           {/* ────────────── LEFT: Main Article ────────────── */}
           <div className="main-content">
@@ -650,6 +635,7 @@ export default function MirathelleArticle() {
                 color: "#3a352e",
               }}
             >
+              {/* ─── SECTION 1: The Response ─── */}
               <h3
                 style={{
                   fontFamily: "'Libre Baskerville', serif",
@@ -660,30 +646,31 @@ export default function MirathelleArticle() {
                   lineHeight: 1.4,
                 }}
               >
-                Megígértem Borókának, hogy jobban fogok vigyázni rá. Tévedtem.
+                Nem számítottam erre.
               </h3>
 
               <p style={{ marginBottom: 16 }}>
-                Három éve tartottam a karomban Kormost, utoljára. Veseelégtelenség. Csak 9 éves volt.
+                Amikor megosztottam, mi történt Borókával és Kormossal, azt hittem, pár ismerős elolvassa. Talán ír valaki, hogy &ldquo;jaj, szegény cica.&rdquo;
               </p>
 
               <div className="intro-two-col">
                 <div className="intro-two-col-text">
                   <div className="intro-bullet-block">
                     <p style={{ marginBottom: 16 }}>
-                      Az állatorvos azt mondta, ez gyakori.{" "}
-                      <strong><em>A cicák elrejtik a fájdalmat, amíg nem késő.</em></strong>{" "}
-                      Mire Kormos abbahagyta az evést, a veséi már tönkrementek. Hónapokig hibáztattam magam.
-                      Mit nem vettem észre? Mit csináltam rosszul? Amikor örökbe fogadtam Borókát, megesküdtem, hogy
-                      másképp lesz. Ezúttal mindent jól csináltam.
+                      Ehelyett 247 üzenetet kaptam. Két hét alatt. Anyukák írtak, akiknek a cicájuk pont most kapott rossz vérvizsgálatot. Idős gazdik, akik már{" "}
+                      <strong><em>elveszítettek macskát vesebetegségben.</em></strong>{" "}
+                      Fiatalok, akik az első cicájukat nevelik és meg akarják előzni a bajt.
                     </p>
                   </div>
                   <div className="intro-bullet-block">
                     <p style={{ marginBottom: 16 }}>
-                      Prémium nedves és száraz táp vegyesen.{" "}
-                      <strong><em>Állatorvosi vizsgálat félévente.</em></strong>{" "}
-                      Semmi olcsó jutalomfalat. Még speciális vesevédő táplálékkiegészítőt is vettem.
-                      Két évig Boróka virágzott. Aztán jöttek a vérvizsgálati eredmények, amiktől megállt a szívem.
+                      De a legtöbb üzenetben ugyanaz a mondat volt:{" "}
+                      <strong><em>&ldquo;Nálunk is van egy tál a konyhában. A cicám alig iszik belőle. Ez normális?&rdquo;</em></strong>
+                    </p>
+                    <p style={{ marginBottom: 16 }}>
+                      Nem. Nem normális.
+                      <br />
+                      És ez az a mondat, ami miatt leültem és megírtam ezt az oldalt.
                     </p>
                   </div>
                 </div>
@@ -692,6 +679,7 @@ export default function MirathelleArticle() {
                 </div>
               </div>
 
+              {/* ─── SECTION 2: Why Cats Don't Drink ─── */}
               <h3
                 style={{
                   fontFamily: "'Libre Baskerville', serif",
@@ -702,36 +690,23 @@ export default function MirathelleArticle() {
                   lineHeight: 1.4,
                 }}
               >
-                &ldquo;Korai Veseterhelés Jelei&rdquo;
+                Miért Nem Iszik A Cicád – A Válasz, Amit Az Állatorvosod Sosem Magyaráz El Rendesen
               </h3>
 
               <p style={{ marginBottom: 16 }}>
-                Ennek a 3 szónak köszönhetem életem legrosszabb napjait.
-                <br />
-                Hogy lehetséges ez?
+                Az állatorvosok azt mondják: &ldquo;ösztönözze a folyadékbevitelt.&rdquo;
               </p>
               <p style={{ marginBottom: 16 }}>
-                MINDENT megváltoztattam Kormos halála után. Ezreket költöttem jobb ellátásra. Minden
-                cikket elolvastam a cicák veseegészségéről. Mégis itt voltam.{" "}
-                <strong><em>Ugyanazt a rémálmot éltem át újra.</em></strong>
+                De nem mondják el, MIÉRT nem iszik a cicád. Nem magyarázzák el, mit jelent ez valójában.
               </p>
               <p style={{ marginBottom: 16 }}>
-                Nem tudtam aludni. Nem tudtam enni. Valahányszor Boróka elsétált a vizes tálkája
-                mellett, rosszul lettem.
-              </p>
-              <p style={{ marginBottom: 16 }}>Majd egyszer csak kattant valami.</p>
-              <p style={{ marginBottom: 16 }}>
-                A vizes tálkája.
-                <br />
-                Ugyanaz a kerámia tál, amit Kormosnál is használtam.
-                <br />
-                Ugyanaz a csapvíz, ugyanabból a konyhai csapból.
+                Szóval elmondom én.
               </p>
               <p style={{ marginBottom: 16 }}>
-                Megváltoztattam a tápot.{" "}
-                <strong><em>Megváltoztattam az állatorvost. Mindent megváltoztattam, amit LÁTTAM.</em></strong>
-                <br />
-                De sosem kérdőjeleztem meg a vizet.
+                A cicák sivatagi állatokból fejlődtek. Az ősük, az afrikai vadmacska, szinte soha nem ivott álló vízből. A vadonban az álló víz veszélyt jelent. Baktériumok. Paraziták. Mérgek.
+              </p>
+              <p style={{ marginBottom: 16 }}>
+                <strong><em>Ez az ösztön ma is ott van minden házi cicában.</em></strong> Nem tanult viselkedés – az agyuk mélyére van égetve.
               </p>
 
               <div className="grid-4">
@@ -741,6 +716,20 @@ export default function MirathelleArticle() {
                 <img src={IMAGES.catBowl4} alt="Cica és vizes tál" />
               </div>
 
+              <p style={{ marginBottom: 16 }}>
+                Amikor a cicád odamegy a tálhoz, megszagolja, és elsétál mellette – nem azért teszi, mert nem szomjas.
+              </p>
+              <p style={{ marginBottom: 16 }}>
+                Azért teszi, mert minden sejtje azt mondja:{" "}
+                <strong><em>ez a víz nem biztonságos.</em></strong>
+              </p>
+              <p style={{ marginBottom: 16 }}>
+                Iszik belőle? Igen. A minimumot. Épp annyit, amennyi a túléléshez kell.
+                <br />
+                De nem eleget ahhoz, hogy egészséges legyen.
+              </p>
+
+              {/* ─── SECTION 3: The Numbers ─── */}
               <h3
                 style={{
                   fontFamily: "'Libre Baskerville', serif",
@@ -751,50 +740,84 @@ export default function MirathelleArticle() {
                   lineHeight: 1.4,
                 }}
               >
-                A Láthatatlan Probléma, Amiről Soha Senki Nem Beszél
+                A Számok, Amiktől Rosszul Lettem
               </h3>
 
               <p style={{ marginBottom: 16 }}>
-                Úgy kezdtem kutatni, mintha a cicám élete múlna rajta.
-                <br />
-                Mert múlott is.
-                <br />
-                Amit találtam, sokkolt.
+                A cicáknak napi <strong><em>200-300 ml vizet kellene inniuk.</em></strong> A legtöbb tálból ivó cica ennek a felét sem issza meg.
               </p>
               <p style={{ marginBottom: 16 }}>
-                A cicáknak napi <strong><em>200-300 ml vizet kellene inniuk.</em></strong>{" "}
-                A legtöbb cica ennek a felét sem issza meg.
+                Nem azért, mert nem szomjas. Azért, mert az ösztönei nem engedik.
               </p>
               <p style={{ marginBottom: 16 }}>
-                Miért? Mert az álló víz a tálban beindítja a túlélési ösztöneiket.
-                <br />
-                A vadonban az álló víz gyakran veszélyt jelent. Baktériumok. Paraziták. Halál.
+                És most jön a rész, amit bárcsak valaki elmondott volna, mielőtt Kormost elveszítettem:
               </p>
-              <p style={{ marginBottom: 16 }}>
-                <strong><em>Ezért kerülik a cicák, anélkül hogy tudnák miért.</em></strong>
-                <br />
-                Apró kortyokat isznak. Épp annyit, hogy túléljenek. Sosem eleget ahhoz, hogy
-                egészségesek legyenek.
-              </p>
-              <p style={{ marginBottom: 16 }}>És itt tört össze bennem valami:</p>
               <p style={{ marginBottom: 16, fontWeight: 700, fontStyle: "italic" }}>
-                A krónikus kiszáradás a vesebetegség első számú oka cicáknál.
+                A krónikus, enyhe kiszáradás a vesebetegség első számú megelőzhető oka cicáknál.
               </p>
               <p style={{ marginBottom: 16 }}>
                 Nem a rossz táp. Nem a genetika. Nem az életkor.
                 <br />
-                A víz. Pontosabban a NEM ELÉG víz.
+                A víz. Pontosabban: a NEM ELÉG víz.
               </p>
               <p style={{ marginBottom: 16 }}>
-                Azt hittem, Kormos eleget iszik, mert láttam a tálnál. De alig kortyolgatott.{" "}
-                <strong><em>A veséi évekig túlóráztak, hogy szűrjék a méreganyagokat, szinte víz nélkül.</em></strong>
+                Amikor egy cica évekig keveset iszik, a veséinek egyre töményebb vizeletet kell feldolgozniuk. Minden nap egy kicsit több stressz. Minden nap egy kicsit több károsodás.
               </p>
               <p style={{ marginBottom: 16 }}>
-                És pontosan ugyanezt a helyzetet teremtettem meg Borókánál is.
-                <br />
-                Ugyanaz a tál. Ugyanaz az álló víz. Ugyanaz a lassú károsodás, amit nem láttam.
+                <strong><em>A veséi nem egy nap alatt mennek tönkre.</em></strong> Évekig tartó, csendes folyamat. Kívülről semmi nem látszik. A cicád játszik, dorombol, eszik. Közben a veséi lassan, napról napra veszítenek a teljesítményükből.
+              </p>
+              <p style={{ marginBottom: 16 }}>
+                Mire a vérvizsgálat emelkedett értékeket mutat, a károsodás már visszafordíthatatlan.
+              </p>
+              <p style={{ marginBottom: 16 }}>
+                Ez történt Kormossal. 9 évig ivott csapvizet egy tálból. Mire észrevettem, késő volt.
+              </p>
+              <p style={{ marginBottom: 16 }}>
+                És majdnem ez történt Borókával is.
               </p>
 
+              {/* ─── SECTION 4: Why Fresh Bowl Isn't Enough ─── */}
+              <h3
+                style={{
+                  fontFamily: "'Libre Baskerville', serif",
+                  fontSize: 22,
+                  fontWeight: 700,
+                  margin: "36px 0 16px",
+                  color: "#2a2520",
+                  lineHeight: 1.4,
+                }}
+              >
+                &ldquo;De Én Naponta Cserélem A Vizet!&rdquo;
+              </h3>
+
+              <p style={{ marginBottom: 16 }}>
+                Ez volt a 247 üzenetből a leggyakoribb mondat.
+              </p>
+              <p style={{ marginBottom: 16 }}>
+                Én is ezt csináltam. Minden nap friss csapvíz, tiszta tál. Azt hittem, elég.
+              </p>
+              <p style={{ marginBottom: 16 }}>
+                Nem elég. És most elmagyarázom, miért.
+              </p>
+              <p style={{ marginBottom: 16 }}>
+                A probléma nem a víz frissessége.{" "}
+                <strong><em>A probléma maga a tál.</em></strong>
+              </p>
+              <p style={{ marginBottom: 16 }}>
+                Az álló víz – akár 5 perce töltötted – nem mozog. Nem áramlik. A cicád orra számára ez &ldquo;halott&rdquo; víz.
+              </p>
+              <p style={{ marginBottom: 16 }}>
+                A csapvízben ráadásul klór van, nehézfémek, vegyszermaradványok. Te nem érzed.{" "}
+                <strong><em>A cicád orra igen.</em></strong>
+              </p>
+              <p style={{ marginBottom: 16 }}>
+                Megszagolja. Megérzi, hogy &ldquo;nem tiszta.&rdquo; És elmegy.
+              </p>
+              <p style={{ marginBottom: 16 }}>
+                Attól, hogy naponta háromszor cseréled a vizet, a tál attól még tál marad. Az álló víz attól még álló víz. Az ösztön attól még azt mondja: kerüld el.
+              </p>
+
+              {/* ─── SECTION 5: Moving Water ─── */}
               <h3
                 style={{
                   fontFamily: "'Libre Baskerville', serif",
@@ -811,12 +834,13 @@ export default function MirathelleArticle() {
               <div className="moving-water-layout">
                 <div className="moving-water-text">
                   <p style={{ marginBottom: 16 }}>
-                    A cicákat vonzza a mozgó víz.
-                    <br />
-                    Ez be van égetve az agyukba. A folyó víz friss vizet jelent. Biztonságos vizet. Életet.
+                    A mozgó víz más.
                   </p>
                   <p style={{ marginBottom: 16 }}>
-                    Kutatások szerint a cicák 3x több vizet isznak, ha az áramlik és mozog.
+                    A cicák agyában a folyó víz = friss víz = biztonságos víz. Ez nem nevelés kérdése – ez evolúció.
+                  </p>
+                  <p style={{ marginBottom: 16 }}>
+                    Kutatások szerint a cicák <strong>akár háromszor annyi vizet isznak</strong>, ha az áramlik.
                   </p>
                   <ul style={{ margin: "16px 0", paddingLeft: 24, lineHeight: 2, color: "#3a352e" }}>
                     <li>A bajszuk nem ér az oldalához (amit utálnak).</li>
@@ -824,16 +848,24 @@ export default function MirathelleArticle() {
                     <li>A mozgás azt üzeni az ösztöneiknek: ez a víz biztonságos.</li>
                   </ul>
                   <p style={{ marginBottom: 16 }}>
-                    Találnom kellett egy módot, hogy Borókának 0-24 folyó vizet adjak.
-                    <br />
-                    Ekkor fedeztem fel a <strong>Mirathelle Macska Ivókutat</strong>.
+                    Ezt láttam Borókánál. Az első napon, amikor bekapcsoltam a szökőkutat, odament és ivott. Huszonöt másodpercig.{" "}
+                    <strong><em>Két év alatt nem láttam így inni.</em></strong>
                   </p>
+                  <p style={{ marginBottom: 16 }}>
+                    Az első héten naponta ötször-hatszor láttam a kútnál. A második héten észrevettem, hogy az alomban nagyobbak a nedves csomók. Több vizelet. Hígabb vizelet. Kevesebb stressz a veséken.
+                  </p>
+                  <p style={{ marginBottom: 16 }}>
+                    Nyolc hét után a vérvizsgálata stabilizálódott. Az állatorvos azt kérdezte:{" "}
+                    <strong>&ldquo;Min változtatott?&rdquo;</strong>
+                  </p>
+                  <p style={{ marginBottom: 16 }}>Csak a vízen.</p>
                 </div>
                 <div className="moving-water-img">
                   <img src={IMAGES.fountain} alt="Mirathelle Macska Ivókút" style={{ width: "100%", borderRadius: 10, objectFit: "cover" }} />
                 </div>
               </div>
 
+              {/* ─── SECTION 6: What Others Experienced ─── */}
               <h3
                 style={{
                   fontFamily: "'Libre Baskerville', serif",
@@ -844,44 +876,33 @@ export default function MirathelleArticle() {
                   lineHeight: 1.4,
                 }}
               >
-                Amikor Boróka Először Ivott Igazi Vizet
+                Amit Boróka Óta Más Gazdiktól Hallottam
               </h3>
 
               <p style={{ marginBottom: 16 }}>
-                Ideges voltam, amikor összeszereltem.
-                <br />
-                Mi van, ha figyelmen kívül hagyja? Mi van, ha már késő?
+                Azok közül, akik írtak, 34-en megvették ugyanazt a szökőkutat. Nem kértem rá senkit – csak megosztottam, mit használok.
               </p>
               <p style={{ marginBottom: 16 }}>
-                Bedugom a konnektorba. A víz elkezdett folyni egy lágy sugárban.
-                <br />
-                Boróka fülei felálltak.
-                <br />
-                Lassan odament. Megszagolta.
+                3 héten belül 28-an írtak vissza.
               </p>
               <p style={{ marginBottom: 16 }}>
-                <strong>Aztán ivott. És ivott. És tovább ivott.</strong>
+                Szinte minden üzenet ugyanúgy kezdődött: <strong><em>&ldquo;Nem hittem volna.&rdquo;</em></strong>
               </p>
               <p style={{ marginBottom: 16 }}>
-                Ott sírtam el magam a konyhámban.
-                <br />
-                Két év alatt sosem láttam így inni.
+                Judit 7 éves cirmos kandúrja a harmadik naptól iszik rendesen. &ldquo;Azelőtt naponta egyszer láttam a tálnál. Most háromszor-négyszer megyek el mellette, és ott ül és iszik.&rdquo;
               </p>
               <p style={{ marginBottom: 16 }}>
-                Az első héten belül változásokat vettem észre.
-                <br />
-                A szőre fényesebbnek tűnt. Több energiája volt.{" "}
-                <strong>Naponta többször ODAMENT a szökőkúthoz.</strong>
+                Gábor 12 éves perzsa macskájának a szőre két hét alatt változott meg. &ldquo;Fényesebb, puhább. Az állatorvos azt mondta, a jobb hidratáltság látszik rajta.&rdquo;
               </p>
               <p style={{ marginBottom: 16 }}>
-                3 hónap múlva újra vérvizsgálatot csináltattunk.
-                <br />
-                Az állatorvos értetlenkedett.
-                <br />
-                <strong>&ldquo;A veseértékei javultak. Min változtatott?&rdquo;</strong>
+                Zsófi csaknem elveszítette az 5 éves cicáját. Emelkedett veseértékek, pont mint Borókánál. Három hónappal a szökőkút után a következő kontroll normál tartományban volt.{" "}
+                <strong><em>&ldquo;Sírtam az állatorvosi rendelőben.&rdquo;</em></strong>
               </p>
-              <p style={{ marginBottom: 24 }}>Csak a vízen. Ennyi.</p>
+              <p style={{ marginBottom: 16 }}>
+                Nem tudományos tanulmány. Nem klinikai vizsgálat. Csak emberek, akik változtattak egy dolgon – és látták az eredményt.
+              </p>
 
+              {/* ─── SECTION 7: Product Differentiation ─── */}
               <h3
                 style={{
                   fontFamily: "'Libre Baskerville', serif",
@@ -892,20 +913,26 @@ export default function MirathelleArticle() {
                   lineHeight: 1.4,
                 }}
               >
-                Mitől Más Ez Az Ivókút
+                Mitől Más A Mirathelle Ivókút
               </h3>
 
               <p style={{ marginBottom: 16 }}>
-                A <strong>Mirathelle Macska Ivókút</strong> nem olyan, mint az olcsó műanyag
-                szökőkutak, amik két nap alatt benyálkásodnak.
+                Mielőtt megvettem a sajátomat, megnéztem jó néhány szökőkutat. A legtöbb olcsó műanyag, ami két nap alatt benyálkásodik. A szivattyú hangos. A szűrő nem szűr semmit. A cicák megszagolják és elmennek – pont mint a tálnál.
               </p>
               <p style={{ marginBottom: 16 }}>
-                Háromszintű szűrés – mechanikus, aktív szén, ioncserélő, ami eltávolítja a rossz
-                ízeket és szagokat.
+                A <strong>Mirathelle Ivókút</strong> más.
               </p>
               <p style={{ marginBottom: 16 }}>
-                A víz folyamatosan áramlik. Friss és oxigéndús marad. Orvosi minőségű szűrt víz.
-                1,8 liter fér bele – szóval nem szárad ki, amíg dolgozol.
+                304-es rozsdamentes acél – nem műanyag, ami baktériumokat gyűjt.
+              </p>
+              <p style={{ marginBottom: 16 }}>
+                Háromszintű szűrés: mechanikus szűrő, aktív szén, ioncserélő. Eltávolítja a klórt, a nehézfémeket, a rossz ízeket és szagokat.{" "}
+                <strong><em>Orvosi minőségű szűrt víz.</em></strong>
+              </p>
+              <p style={{ marginBottom: 16 }}>
+                A víz folyamatosan áramlik. Friss és oxigéndús marad.
+                <br />
+                1,8 liter fér bele – nem szárad ki, amíg dolgozol.
               </p>
               <p style={{ marginBottom: 16 }}>
                 Halk. Boróka néha mellette alszik.
@@ -913,11 +940,7 @@ export default function MirathelleArticle() {
                 A tisztítása 5 percet vesz igénybe hetente egyszer.
               </p>
               <p style={{ marginBottom: 16 }}>
-                8 hónapja van meg. Boróka több vizet iszik, mint valaha.
-                <br />
-                Valahányszor hallom azt a lágy csobogást, Kormosra gondolok.
-                <br />
-                Bárcsak hamarabb tudtam volna.
+                10 hónapja van meg. Boróka több vizet iszik, mint valaha.
               </p>
 
               {/* ═══ PRODUCT CARD ═══ */}
@@ -959,51 +982,12 @@ export default function MirathelleArticle() {
                       flexShrink: 0,
                     }}
                   >
-                    TOVÁBB
+                    MEGNÉZEM
                   </a>
                 </div>
               </div>
 
-              <h3
-                style={{
-                  fontFamily: "'Libre Baskerville', serif",
-                  fontSize: 22,
-                  fontWeight: 700,
-                  margin: "36px 0 16px",
-                  color: "#2a2520",
-                  lineHeight: 1.4,
-                }}
-              >
-                Azért Osztom Meg, Mert Nekem Senki Nem Mondta El
-              </h3>
-
-              <p style={{ marginBottom: 16 }}>
-                Miután posztoltam Boróka javulásáról a Facebookon,{" "}
-                <strong><em>14 ismerősöm írt, hogy milyen szökőkutat vettem.</em></strong>
-              </p>
-              <p style={{ marginBottom: 16 }}>
-                Hárman már elveszítettek cicát veseproblémák miatt.
-                <br />
-                Kettőnek a cicája korai figyelmeztető jeleket mutatott.
-              </p>
-              <p style={{ marginBottom: 16, fontWeight: 700, fontStyle: "italic" }}>
-                Egyikük sem tudott az álló víz problémájáról. Ennek az információnak mindenhol ott
-                kellene lennie. De nincs.
-              </p>
-              <p style={{ marginBottom: 16 }}>
-                Az állatorvosok azt mondják, &ldquo;ösztönözze a folyadékbevitelt.&rdquo; Nem mondják
-                el, MIÉRT nem iszik a cicád.
-              </p>
-              <p style={{ marginBottom: 16 }}>
-                Ezért elmondom mindenkinek, aki hajlandó meghallgatni:
-              </p>
-              <p style={{ marginBottom: 16, fontWeight: 700, fontStyle: "italic" }}>
-                Ha a cicád tálból iszik, valószínűleg nem iszik eleget.
-              </p>
-              <p style={{ marginBottom: 16 }}>
-                Lehet, hogy évekig nem látod a károsodást. De megtörténik.
-              </p>
-
+              {/* ─── SECTION 8: Close ─── */}
               <h3
                 style={{
                   fontFamily: "'Libre Baskerville', serif",
@@ -1018,14 +1002,19 @@ export default function MirathelleArticle() {
               </h3>
 
               <p style={{ marginBottom: 16 }}>
-                Mielőtt lezárom, még egy dolgot szeretnék tisztán elmondani.
-                <br />
-                Igen, most már nekem is származik belőle hasznom, ha valaki ezen az oldalon keresztül
-                vásárol. De ezelőtt is már halálra untattam az összes cicás ismerősömet az
-                áradozásommal.
+                Amikor Kormos meghalt, listát írtam arról, mit csináltam volna másképp.
               </p>
               <p style={{ marginBottom: 16 }}>
-                A Mirathelle Ivókút kevesebbe kerül, mint egy sürgősségi állatorvosi vizit.
+                A víz nem volt rajta a listán.
+              </p>
+              <p style={{ marginBottom: 16 }}>
+                Ha rajta lett volna, talán Kormos ma is itt lenne.
+              </p>
+              <p style={{ marginBottom: 16 }}>
+                Nem tudom visszahozni Kormost. De meg tudtam menteni Borókát. És ezt az oldalt azért írtam, hogy te ne veszíts el éveket – és ne veszítsd el a cicádat – mire rájössz, amit én túl későn tanultam meg.
+              </p>
+              <p style={{ marginBottom: 16 }}>
+                A Mirathelle Ivókút kevesebbe kerül, mint egyetlen sürgősségi állatorvosi vizit.
                 <br />
                 Kevesebbe, mint a táplálékkiegészítők, amikre feleslegesen költöttem.
                 <br />
@@ -1035,50 +1024,24 @@ export default function MirathelleArticle() {
                 Pénzvisszafizetési garanciával jár.
               </p>
               <p style={{ marginBottom: 16 }}>
-                Ha a cicád nem iszik többet, visszaküldheted.
-                <br />
-                De még sosem hallottam, hogy ez megtörtént volna.
-                <br />
-                A cicák IMÁDJÁK a mozgó vizet. Ez biológia.
+                Ha a cicád nem iszik többet, visszaküldheted. De a cicák imádják a mozgó vizet. Ez biológia. Még sosem küldték vissza.
               </p>
               <p style={{ marginBottom: 24 }}>
-                <a href={PRODUCT_URL} target="_blank" rel="noopener noreferrer" className="inline-link" onClick={() => trackClick("link1-boroka", "👉 Link1 - Megmentette Borókát")}>
-                  👉 Kattints Ide, Hogy Megnézd Az Ivókutat, Ami Megmentette Borókát
+                <a href={PRODUCT_URL} target="_blank" rel="noopener noreferrer" className="inline-link" onClick={() => trackClick("link1-boroka", "👉 Link1 - Megnézem az ivókutat")}>
+                  👉 Kattints ide, hogy megnézd a Mirathelle Ivókutat
                 </a>
               </p>
               <p style={{ marginBottom: 16 }}>
-                Ha elveszítettél már cicát vesebetegségben, tudod milyen fájdalom.
-                <br />
-                Ha megesküdtél, hogy a következővel jobban vigyázol, így teheted meg.
-                <br />
-                Ne változtass meg mindent, kivéve az egy dolgot, ami számít.
+                Boróka most a szökőkútja mellett alszik. Egészségesen. Hidratáltan. Biztonságban.
               </p>
               <p style={{ marginBottom: 16 }}>
-                Én majdnem kétszer követtem el ezt a hibát. Boróka most a szökőkútja mellett alszik.
-                Egészségesen. Hidratáltan. Biztonságban.
+                Bárcsak hamarabb tudtam volna.
                 <br />
-                Csak ennyit akartam.
-              </p>
-              <p style={{ marginBottom: 24 }}>
-                <a href={PRODUCT_URL} target="_blank" rel="noopener noreferrer" className="inline-link" onClick={() => trackClick("link2-keszlet", "👉 Link2 - Készleten Van")}>
-                  👉 Szerezd Be A Mirathelle Ivókutat, Amíg Készleten Van
-                </a>
-              </p>
-              <p style={{ marginBottom: 16 }}>
-                Két választásod van:
-                <br />
-                Megtartod ugyanazt a vizes tálat, és reménykedsz a legjobbakban.
-                <br />
-                Vagy 5 percet szánsz egy szökőkút beállítására, ami éveket adhat a cicád életéhez.
-              </p>
-              <p style={{ marginBottom: 16 }}>
-                Tudom, melyiket választottam én.
-                <br />
-                Boróka minden iváskor megköszöni.
+                Most már te is tudod.
               </p>
               <p style={{ marginBottom: 40 }}>
-                <a href={PRODUCT_URL} target="_blank" rel="noopener noreferrer" className="inline-link" onClick={() => trackClick("link3-szurok", "👉 Link3 - Ingyenes Szűrők")}>
-                  👉 Nézd Meg, Amég Ingyenes Szűrőket Is Adnak Ajándékba Mellé
+                <a href={PRODUCT_URL} target="_blank" rel="noopener noreferrer" className="inline-link" onClick={() => trackClick("link2-keszlet", "👉 Link2 - Ajándék szűrők")}>
+                  👉 Szerezd be, amíg jár mellé 4 hónapnyi ajándék szűrő
                 </a>
               </p>
             </article>
@@ -1132,27 +1095,25 @@ export default function MirathelleArticle() {
               </div>
             </div>
 
-            {/* ═══ REVIEWS (inline) ═══ */}
+            {/* ═══ REVIEWS ═══ */}
             <div className="testimonials-grid" style={{ marginBottom: 48 }}>
               <h2 className="testimonials-title">Másoknak is bevált</h2>
               <div className="cards-wrapper">
-                {/* CARD 1 */}
                 <div className="testimonial-card">
                   <div className="tc-stars">★★★★★</div>
                   <div className="tc-quote-icon">&ldquo;</div>
                   <h3>Tökéletes ivókút nem léte...</h3>
                   <p>
-                    A múltban vettem jó néhány ivókutat nagy állatkereskedési láncokból, eddig sosem volt az igazi vagy sosem működött, vagy csak rövid ideig. Féltem is kicsit, amikor ezt megrendeltem, de hatalmas pozitív csalódás volt. Nagyon elégedett vagyok. A rozsdamentes acél megnyugtat a mosások közötti túlzott baktériumszaporodás ellen. Nem is lehetne egyszerűbb felállítani és feltölteni. A macskák pedig imádják. Sokkal több vizet isznak, mióta megkapták. Az is tetszik, hogy jó mennyiségű vizet tárol anélkül, hogy túl sok helyet foglalna.
+                    A múltban vettem jó néhány ivókutat nagy állatkereskedési láncokból, eddig sosem volt az igazi vagy sosem működött, vagy csak rövid ideig. Féltem is kicsit, amikor ezt megrendeltem, de hatalmas pozitív csalódás volt. Nagyon elégedett vagyok. A rozsdamentes acél megnyugtat a mosások közötti túlzott baktériumszaporodás ellen. Nem is lehetne egyszerűbb felállítani és feltölteni. A macskák pedig imádják. Sokkal több vizet isznak, mióta megkapták.
                   </p>
                   <div className="tc-reviewer-name">Attila D.</div>
                 </div>
-                {/* CARD 2 */}
                 <div className="testimonial-card">
                   <div className="tc-stars">★★★★★</div>
                   <div className="tc-quote-icon">&ldquo;</div>
                   <h3>Hatalmas változás a macska általános egészségi állapotában</h3>
                   <p>
-                    Miért nem vettem meg ezt hamarabb? Szinte teljesen hangtalan, és a macskáim több vizet isznak, mint valaha. Óriási változást hozott az emésztésükben! Rendszeresebben végeznek (és nem azok az apró székrekedéses golyócskák, hanem rendes ürülék), és a szőrük is egészségesebbnek tűnik. Csak ügyelj rá, hogy néhány naponta tisztítsd, mert elég csúnyává válhat odabent, de nagyon könnyű szétszedni!
+                    Miért nem vettem meg ezt hamarabb? Szinte teljesen hangtalan, és a macskáim több vizet isznak, mint valaha. Óriási változást hozott az emésztésükben! Rendszeresebben végeznek, és a szőrük is egészségesebbnek tűnik. Csak ügyelj rá, hogy néhány naponta tisztítsd, mert elég csúnyává válhat odabent, de nagyon könnyű szétszedni!
                   </p>
                   <div className="tc-reviewer-name">Kata N.</div>
                 </div>
@@ -1195,7 +1156,6 @@ export default function MirathelleArticle() {
 
           {/* ────────────── RIGHT: Sticky Sidebar ────────────── */}
           <aside className="right-sidebar">
-            {/* Video Placeholder (blank - ready for video embed) */}
             <div
               style={{
                 background: "#fff",
@@ -1206,7 +1166,6 @@ export default function MirathelleArticle() {
                 boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
               }}
             >
-              {/* Empty space for video - replace this div with your video embed */}
               <div style={{ width: "100%", aspectRatio: "9/16", background: "#f0ece4" }} />
               <div style={{ padding: 16, textAlign: "center" }}>
                 <a
@@ -1229,12 +1188,11 @@ export default function MirathelleArticle() {
                     transition: "background 0.2s ease",
                   }}
                 >
-                  TOVÁBB
+                  MEGNÉZEM
                 </a>
               </div>
             </div>
 
-            {/* 3 Images Stacked Vertically */}
             <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 20 }}>
               <img src={IMAGES.sidebar1} alt="Cica" style={{ width: "100%", borderRadius: 10, objectFit: "cover" }} />
               <img src={IMAGES.sidebar2} alt="Cica" style={{ width: "100%", borderRadius: 10, objectFit: "cover" }} />
@@ -1242,7 +1200,6 @@ export default function MirathelleArticle() {
             </div>
           </aside>
         </div>
-
       </div>
 
       {/* ── Fixed Bottom CTA ── */}

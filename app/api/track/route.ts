@@ -4,17 +4,17 @@ import { createClient } from "redis";
 /*
  * /api/track
  *
- * POST — Record a click event
+ * POST — Record a click event (now with articleId)
  * GET  — Retrieve click events with optional filters
  *
- * Storage: Vercel Redis (node-redis)
- *
  * Redis keys:
- *   clicks:all        — sorted set of all events (score = timestamp ms)
- *   clicks:labels     — hash mapping button id → label
+ *   clicks:{articleId}  — sorted set of events per article (score = timestamp ms)
+ *   articles            — hash mapping articleId → articleName
  */
 
 interface ClickEvent {
+  articleId: string;
+  articleName: string;
   id: string;
   label: string;
   timestamp: string;
@@ -22,35 +22,34 @@ interface ClickEvent {
   referer?: string;
 }
 
-/* ─── Redis Client (reuse across warm invocations) ─── */
 let redisClient: ReturnType<typeof createClient> | null = null;
 
 async function getRedis() {
   if (redisClient && redisClient.isOpen) return redisClient;
-
-  redisClient = createClient({
-    url: process.env.REDIS_URL,
-  });
-
+  redisClient = createClient({ url: process.env.REDIS_URL });
   redisClient.on("error", (err) => console.error("Redis error:", err));
   await redisClient.connect();
   return redisClient;
 }
 
-/* ─── POST: Record a click ─── */
+/* ─── POST ─── */
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { id, label } = body;
+    const { id, label, articleId, articleName } = body;
 
     if (!id || typeof id !== "string") {
-      return NextResponse.json({ error: "Missing or invalid 'id'" }, { status: 400 });
+      return NextResponse.json({ error: "Missing 'id'" }, { status: 400 });
     }
 
+    const aid = articleId || "unknown";
+    const aname = articleName || aid;
     const redis = await getRedis();
     const now = new Date();
 
     const event: ClickEvent = {
+      articleId: aid,
+      articleName: aname,
       id,
       label: label || id,
       timestamp: now.toISOString(),
@@ -58,14 +57,20 @@ export async function POST(request: NextRequest) {
       referer: request.headers.get("referer") || undefined,
     };
 
-    // Store event in sorted set (score = ms timestamp for range queries)
+    // Store in article-specific sorted set
+    await redis.zAdd(`clicks:${aid}`, {
+      score: now.getTime(),
+      value: JSON.stringify(event),
+    });
+
+    // Also store in global set for cross-article views
     await redis.zAdd("clicks:all", {
       score: now.getTime(),
       value: JSON.stringify(event),
     });
 
-    // Store label mapping
-    await redis.hSet("clicks:labels", id, label || id);
+    // Register article
+    await redis.hSet("articles", aid, aname);
 
     return NextResponse.json({ success: true, event }, { status: 201 });
   } catch (err) {
@@ -74,7 +79,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-/* ─── GET: Retrieve clicks ─── */
+/* ─── GET ─── */
 export async function GET(request: NextRequest) {
   try {
     const redis = await getRedis();
@@ -82,8 +87,11 @@ export async function GET(request: NextRequest) {
     const from = searchParams.get("from");
     const to = searchParams.get("to");
     const btn = searchParams.get("btn");
+    const article = searchParams.get("article"); // articleId filter
 
-    // Score range for sorted set
+    // Determine which sorted set to query
+    const setKey = article ? `clicks:${article}` : "clicks:all";
+
     let minScore = "-inf";
     let maxScore = "+inf";
 
@@ -98,8 +106,7 @@ export async function GET(request: NextRequest) {
       maxScore = d.getTime().toString();
     }
 
-    // Fetch from sorted set
-    const rawEvents = await redis.zRangeByScore("clicks:all", minScore, maxScore);
+    const rawEvents = await redis.zRangeByScore(setKey, minScore, maxScore);
 
     let events: ClickEvent[] = rawEvents
       .map((raw) => {
@@ -108,12 +115,10 @@ export async function GET(request: NextRequest) {
       })
       .filter((e): e is ClickEvent => e !== null);
 
-    // Filter by button
     if (btn) {
       events = events.filter((e) => e.id === btn);
     }
 
-    // Newest first
     events.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
 
     // Stats
@@ -124,11 +129,16 @@ export async function GET(request: NextRequest) {
     });
     const stats = Object.values(statsMap).sort((a, b) => b.count - a.count);
 
+    // Get registered articles list
+    const articlesHash = await redis.hGetAll("articles");
+    const articles = Object.entries(articlesHash).map(([id, name]) => ({ id, name }));
+
     return NextResponse.json({
       total: events.length,
       stats,
       bestPerformer: stats.length > 0 ? stats[0] : null,
       events,
+      articles,
     });
   } catch (err) {
     console.error("Track GET error:", err);
