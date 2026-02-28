@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 
 
-const PRODUCT_URL = "https://mirathelle.com/products/ivokut?ref=advertorial";
+const PRODUCT_URL = "https://mirathelle.com/products/ivokut?ref=article";
 
 /* ─── Click Tracking ─── */
 function trackClick(id: string, label: string) {
@@ -235,7 +235,7 @@ function SidebarReview({
 /*  MAIN COMPONENT                                            */
 /* ═══════════════════════════════════════════════════════════ */
 
-export default function MirathelleAdvert() {
+export default function MirathelleArticle() {
   return (
     <div
       style={{
@@ -249,7 +249,7 @@ export default function MirathelleAdvert() {
       <style>{`
 
 
-        .advert-container a:hover { opacity: 0.85; }
+     .article-container a:hover { opacity: 0.85; }
 
         .hero-cta-bar {
           position: sticky;
@@ -357,7 +357,7 @@ export default function MirathelleAdvert() {
         }
       `}</style>
 
-      <div className="advert-container">
+      <div className="article-container">
         {/* ── Sticky CTA Bar ── */}
         <div className="hero-cta-bar">
           <a href={PRODUCT_URL} onClick={() => trackClick("sticky-bar", "Sticky Header CTA")}>→ KÉREM A MEGOLDÁST</a>
