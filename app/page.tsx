@@ -246,9 +246,7 @@ export default function MirathelleAdvert() {
       }}
     >
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap');
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         .advert-container a:hover { opacity: 0.85; }
 
