@@ -21,25 +21,14 @@ function trackClick(id: string, label: string) {
    IMAGES — Replace "TODO" URLs with your uploads
    ═══════════════════════════════════════════════ */
 const IMAGES = {
-  // 1. Hero — woman on couch reading phone, cat sleeping next to her
   hero: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_hero_woman_reading_messages_png.jpg?v=1772322138",
-
-  // 2. Sad cat — woman at vet clinic with cat on examination table
   catSad: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_cat_vet_clinic_png.jpg?v=1772322138",
-
-  // 3-6. Grid 2x2 — cats ignoring water bowls
   catBowl1: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_cat_sniffing_bowl_turning_away_png.jpg?v=1772322138",
   catBowl2: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_cat_sitting_next_to_untouched_bowl_png.jpg?v=1772322138",
   catBowl3: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_overhead_water_bowl_cat_paw_png.jpg?v=1772322137",
   catBowl4: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_woman_watching_cat_walk_past_bowl_png.jpg?v=1772322137",
-
-  // 7. Fountain — stainless steel cat fountain, product shot
   fountain: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_fountain_product_shot_png.png?v=1772321943",
-
-  // 8. Product card — fountain from above showing filtration
   productCard: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_fountain_top_view_filtration_png.png?v=1772321942",
-
-  // 9-11. Sidebar images
   sidebar1: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_sidebar_cat_drinking_fountain_png.png?v=1772321943",
   sidebar2: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_sidebar_woman_watching_cat_drink_png.png?v=1772321943",
   sidebar3: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_sidebar_cat_sleeping_next_to_fountain_png.png?v=1772321942",
@@ -596,30 +585,44 @@ export default function MirathelleArticle2() {
 
           {/* ────────────── RIGHT: Sidebar ────────────── */}
           <aside className="right-sidebar">
-            <div style={{ background: "#fff", borderRadius: 12, border: "1px solid #e8e4dc", overflow: "hidden", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
-              <div style={{ width: "100%", aspectRatio: "9/16", background: "#f0ece4" }} />
-              <div style={{ padding: 16, textAlign: "center" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              {/* Video/GIF with TOVÁBB button overlay */}
+              <div style={{ position: "relative", borderRadius: 10, overflow: "hidden" }}>
+                <video
+                  src="https://cdn.shopify.com/videos/c/o/v/185659e5dbad4195b8e3e2b16224ac2f.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  style={{ width: "100%", display: "block", objectFit: "cover" }}
+                />
                 <a
                   href={PRODUCT_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackClick("sidebar-cta", "Sidebar Zöld TOVÁBB")}
-                  style={{ display: "block", background: "#2ecc40", color: "#fff", borderRadius: 8, padding: "14px 20px", fontFamily: "'Source Sans 3', sans-serif", fontSize: 16, fontWeight: 700, textDecoration: "none", letterSpacing: 1.5, textTransform: "uppercase" }}
+                  style={{
+                    position: "absolute",
+                    bottom: 16,
+                    left: 16,
+                    right: 16,
+                    display: "block",
+                    background: "#2ecc40",
+                    color: "#fff",
+                    borderRadius: 8,
+                    padding: "14px 20px",
+                    fontFamily: "'Source Sans 3', sans-serif",
+                    fontSize: 16,
+                    fontWeight: 700,
+                    textDecoration: "none",
+                    letterSpacing: 1.5,
+                    textTransform: "uppercase",
+                    textAlign: "center",
+                  }}
                 >
                   MEGNÉZEM
                 </a>
               </div>
-            </div>
-                {/* 3 Images Stacked Vertically */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 20 }}>
-              <video
-                src="https://cdn.shopify.com/videos/c/o/v/185659e5dbad4195b8e3e2b16224ac2f.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                style={{ width: "100%", borderRadius: 10, objectFit: "cover" }}
-              />
               <img src={IMAGES.sidebar1} alt="Cica" style={{ width: "100%", borderRadius: 10, objectFit: "cover" }} />
               <img src={IMAGES.sidebar2} alt="Cica" style={{ width: "100%", borderRadius: 10, objectFit: "cover" }} />
               <img src={IMAGES.sidebar3} alt="Cica" style={{ width: "100%", borderRadius: 10, objectFit: "cover" }} />

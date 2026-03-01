@@ -1195,26 +1195,27 @@ export default function MirathelleArticle() {
 
           {/* ────────────── RIGHT: Sticky Sidebar ────────────── */}
           <aside className="right-sidebar">
-            {/* Video Placeholder (blank - ready for video embed) */}
-            <div
-              style={{
-                background: "#fff",
-                borderRadius: 12,
-                border: "1px solid #e8e4dc",
-                overflow: "hidden",
-                marginTop: 0,
-                boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
-              }}
-            >
-              {/* Empty space for video - replace this div with your video embed */}
-              <div style={{ width: "100%", aspectRatio: "9/16", background: "#f0ece4" }} />
-              <div style={{ padding: 16, textAlign: "center" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              {/* Video/GIF with TOVÁBB button overlay */}
+              <div style={{ position: "relative", borderRadius: 10, overflow: "hidden" }}>
+                <video
+                  src="https://cdn.shopify.com/videos/c/o/v/185659e5dbad4195b8e3e2b16224ac2f.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  style={{ width: "100%", display: "block", objectFit: "cover" }}
+                />
                 <a
                   href={PRODUCT_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackClick("sidebar-cta", "Sidebar Zöld TOVÁBB")}
                   style={{
+                    position: "absolute",
+                    bottom: 16,
+                    left: 16,
+                    right: 16,
                     display: "block",
                     background: "#2ecc40",
                     color: "#fff",
@@ -1226,24 +1227,12 @@ export default function MirathelleArticle() {
                     textDecoration: "none",
                     letterSpacing: 1.5,
                     textTransform: "uppercase",
-                    transition: "background 0.2s ease",
+                    textAlign: "center",
                   }}
                 >
                   TOVÁBB
                 </a>
               </div>
-            </div>
-
-            {/* 3 Images Stacked Vertically */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 20 }}>
-              <video
-                src="https://cdn.shopify.com/videos/c/o/v/185659e5dbad4195b8e3e2b16224ac2f.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                style={{ width: "100%", borderRadius: 10, objectFit: "cover" }}
-              />
               <img src={IMAGES.sidebar1} alt="Cica" style={{ width: "100%", borderRadius: 10, objectFit: "cover" }} />
               <img src={IMAGES.sidebar2} alt="Cica" style={{ width: "100%", borderRadius: 10, objectFit: "cover" }} />
               <img src={IMAGES.sidebar3} alt="Cica" style={{ width: "100%", borderRadius: 10, objectFit: "cover" }} />
