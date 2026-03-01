@@ -21,7 +21,7 @@ function trackClick(id: string, label: string) {
    IMAGES — Replace "TODO" URLs with your uploads
    ═══════════════════════════════════════════════ */
 const IMAGES = {
-  hero: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_hero_woman_reading_messages_png.jpg?v=1772322138",
+  hero: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_hero_woman_reading_messages_png.jpg?v=1772323623",
   catSad: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_cat_vet_clinic_png.jpg?v=1772322138",
   catBowl1: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_cat_sniffing_bowl_turning_away_png.jpg?v=1772322138",
   catBowl2: "https://cdn.shopify.com/s/files/1/0959/5548/5016/files/TODO_cat_sitting_next_to_untouched_bowl_png.jpg?v=1772322138",
@@ -344,7 +344,7 @@ export default function MirathelleArticle2() {
           {/* ────────────── LEFT: Main Article ────────────── */}
           <div className="main-content">
             {/* Hero Image */}
-            <img src={IMAGES.hero} alt="Boróka cica" style={{ width: "100%", maxWidth: 560, borderRadius: 12, marginBottom: 24 }} />
+            <img src={IMAGES.hero} alt="Boróka cica" style={{ width: "100%", borderRadius: 12, marginBottom: 24 }} />
 
             {/* ═══ ARTICLE BODY ═══ */}
             <article style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 16, lineHeight: 1.85, color: "#3a352e" }}>
