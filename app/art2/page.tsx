@@ -575,7 +575,7 @@ export default function MirathelleArticle2() {
               <h2 style={{ fontFamily: "'Libre Baskerville', serif", fontSize: 24, fontWeight: 700, textAlign: "center", marginBottom: 28, color: "#2a2520" }}>
                 Gyakran ismételt kérdések
               </h2>
-              <FAQItem question="Milyen gyakran kell cserélni a szűrőket?" answer="A friss, tiszta víz biztosítása érdekében javasoljuk, hogy hetente cserélje ki a szűrőt." />
+              <FAQItem question="Milyen gyakran kell cserélni a szűrőket?" answer="A friss, tiszta víz biztosítása érdekében javasoljuk, hogy legkésőbb 2 hetente cserélje ki a szűrőt." />
               <FAQItem question="Mi történik, ha a macskám nem szereti?" answer="Ha a macskád nem szereti vagy kerüli, várj 3–4 napot, hogy megszokja. Ha továbbra is kerüli, tegyél macskamentát a kifolyóra." />
               <FAQItem question="Mi történik, ha a szivattyú nem működik?" answer="Írj nekünk a support@mirathelle.com címre. Gondoskodunk róla, hogy megkapd a szükséges segítséget." />
               <FAQItem question="Folyamatosan működik?" answer="Igen, folyamatosan." />

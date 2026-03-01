@@ -1175,7 +1175,7 @@ export default function MirathelleArticle() {
               </h2>
               <FAQItem
                 question="Milyen gyakran kell cserélni a szűrőket?"
-                answer="A friss, tiszta víz biztosítása érdekében javasoljuk, hogy hetente cserélje ki a szűrőt."
+                answer="A friss, tiszta víz biztosítása érdekében javasoljuk, hogy legkésőbb 2 hetente cserélje ki a szűrőt."
               />
               <FAQItem
                 question="Mi történik, ha a macskám nem szereti?"
