@@ -344,7 +344,7 @@ export default function MirathelleArticle2() {
           {/* ────────────── LEFT: Main Article ────────────── */}
           <div className="main-content">
             {/* Hero Image */}
-            <img src={IMAGES.hero} alt="Boróka cica" style={{ width: "100%", borderRadius: 12, marginBottom: 24 }} />
+            <img src={IMAGES.hero} alt="Boróka cica" style={{ width: "100%", maxWidth: 560, borderRadius: 12, marginBottom: 24 }} />
 
             {/* ═══ ARTICLE BODY ═══ */}
             <article style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 16, lineHeight: 1.85, color: "#3a352e" }}>
